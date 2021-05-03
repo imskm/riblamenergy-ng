@@ -3,7 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserAddComponent } from './components/user/user-add/user-add.component';
+import { UserEditComponent } from './components/user/user-edit/user-edit.component';
+import { UserShowComponent } from './components/user/user-show/user-show.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
+import { ProjectListComponent } from './components/project/project-list/project-list.component';
+import { ProjectAddComponent } from './components/project/project-add/project-add.component';
+import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
+import { ProjectShowComponent } from './components/project/project-show/project-show.component';
+import { PaymentListComponent } from './components/payment/payment-list/payment-list.component';
+import { PaymentAddComponent } from './components/payment/payment-add/payment-add.component';
+import { PaymentShowComponent } from './components/payment/payment-show/payment-show.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -11,6 +20,15 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'users', component: UserListComponent },
   { path: 'user/add', component: UserAddComponent},
+  { path: 'user/:id/edit', component: UserEditComponent},
+  { path: 'user/:id/show', component: UserShowComponent},
+  { path: 'projects', component: ProjectListComponent },
+  { path: 'project/add', component: ProjectAddComponent },
+  { path: 'project/:id/edit', component: ProjectEditComponent },
+  { path: 'project/:id/show', component: ProjectShowComponent },
+  { path: 'payments', component: PaymentListComponent },
+  { path: 'payment/add', component: PaymentAddComponent },
+  { path: 'payment/:id/show', component: PaymentShowComponent },
 ];
 
 @NgModule({

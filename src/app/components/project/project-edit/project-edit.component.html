@@ -1,0 +1,61 @@
+<div class="dashboard">
+    <app-sidebar></app-sidebar>
+    <div class="dashboard-main">
+        <app-header></app-header>
+        <div class="dashboard-body">
+            <div class="dashboard-body-title-wrapper">
+                <div class="dashboard-body-title">
+                    <h1>Edit project</h1>
+                    <div>
+                        <a routerLink="/projects" class="button is-primary">Back</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+              <div class="form">
+                <div class="main-form">
+                  <div class="field">
+                    <label class="label">Project Name</label>
+                    <input class="input" type="text" placeholder="Project name">
+                  </div>
+                  <div class="field">
+                    <label class="label">Revenue</label>
+                    <input class="input" type="text" placeholder="Revenue">
+                  </div>
+                  <div class="field">
+                    <label class="label">Tax</label>
+                    <input class="input" type="text" placeholder="Tax">
+                  </div>
+                  <div class="field">
+                    <label class="label">Net revenue</label>
+                    <input class="input" type="text" placeholder="Net revenue">
+                  </div>
+                  <div class="field">
+                    <label class="label">Commission rate</label>
+                    <input class="input" type="text" placeholder="Commission rate">
+                  </div>
+                  <div class="field">
+                    <label class="label">Commission amount</label>
+                    <input class="input" type="text" placeholder="Commission amount">
+                  </div>
+                  <div class="field">
+                    <label class="label">Date</label>
+                    <input class="input" type="date" placeholder="Project date" name="dob">
+                  </div>
+                  <div class="field">
+                    <label class="label">Select client</label>
+                    <select name="client_id">
+                      <option value="1">Client 1</option>
+                      <option value="2">Client 2</option>
+                      <option value="3">Client 3</option>
+                    </select>
+                  </div>
+                </div>
+                <button class="button" type="button">Update</button>
+              </div> 
+            </div>
+        </div>
+
+    </div>
+</div>
