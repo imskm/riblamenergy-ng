@@ -1,0 +1,33 @@
+.sign-up {
+  background-position: center;
+  background-color:#f1f1f1;
+  
+
+  &-form-wrapper {
+    display: flex;
+    align-items:center;
+    padding: 350px 700px;
+  }
+ &-form {
+    display:flex;
+    background-color:white; 
+    margin: auto auto;
+    align-items: center;
+    padding: 50px 16px;
+  }
+
+
+  &-form form, .sign-up-form-sign-up {
+    width: 100%;
+     }
+
+  &-form {
+    padding: 26px 16px; 
+  }
+
+&-row {
+  
+  margin-top: 4px ;
+}
+
+}

@@ -1,0 +1,21 @@
+
+.field {
+  display: flex;
+  
+  margin-bottom: 16px;
+
+   }
+
+.input {
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid  #999;
+ font-family: sans-serif;
+  font-size: 14px;
+  padding: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+   background-color: white;
+   color: #999; 
+  }
+
