@@ -18,7 +18,7 @@
                 <tbody>
                   <tr>
                     <th>ID</th>
-                    <td>1</td>
+                    <td>{{ user.id }}</td>
                   </tr>
                   <tr>
                     <th>Avatar</th>
@@ -26,23 +26,23 @@
                   </tr>
                   <tr>
                     <th>Full Name</th>
-                    <td>Test</td>
+                    <td>{{ user.first_name + " " + user.last_name }}</td>
                   </tr>
                   <tr>
                     <th>Gender</th>
-                    <td>M</td>
+                    <td>{{ user.gender }}</td>
                   </tr>
                   <tr>
                     <th>Mobile Number</th>
-                    <td>100000000</td>
+                    <td>{{ user.phone }}</td>
                   </tr>
                   <tr>
                     <th>Email Address</th>
-                    <td>hghjfhjfjfjh</td>
+                    <td>{{ user.email }}</td>
                   </tr>
                   <tr>
                     <th>Created at</th>
-                    <td>22.04.2021</td>
+                    <td>{{ user.created_at }}</td>
                   </tr>
                 </tbody>
               </table>

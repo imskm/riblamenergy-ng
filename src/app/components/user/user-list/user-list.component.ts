@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
+import { UserService } from '../../../services/user.service';
+import { UserModel } from '../../../models/user.model';
+
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -7,9 +13,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  users: Array<UserModel>;
+
+  constructor(private userService: UserService) {
+  	this.users = [];
+  }
 
   ngOnInit(): void {
+  	this.fetchUsers();
+  }
+
+  fetchUsers() {
+  	this.userService.fetch().subscribe((res: any) => {
+  		this.users = res.data;
+      // @TODO Handle error response
+  	});
+  }
+
+  prependUser(user: UserModel) {
+  	this.users.unshift(user);
   }
 
 }

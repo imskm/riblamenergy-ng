@@ -18,25 +18,44 @@
                 <div class="main-form">
                     <div class=" field">
                         <label class="label">First Name</label>
-                        <input class="input" type="text" placeholder="First Name">
+                        <input [(ngModel)]="user.first_name" class="input" type="text" placeholder="First Name">
                     </div>
                     <div class=" field">
                         <label class="label">Last Name</label>
-                        <input class="input" type="text" placeholder="Last Name">
+                        <input [(ngModel)]="user.last_name" class="input" type="text" placeholder="Last Name">
                     </div>
                     <div class=" field">
+                        <label class="label">Gender</label><br>
+                        <select name="gender">
+                            <option [(ngModel)]="user.gender" value="1">Male</option>
+                            <option [(ngModel)]="user.gender" value="2">Female</option>
+                        </select>
+                    </div>
+					<div class="field">
+						<label class="label">Role?</label><br>
+						<select name="role" [(ngModel)]="user.role">
+							<option value="2">Business Head</option>
+							<option value="3">Area Manager</option>
+							<option value="4">Field Engineer</option>
+						</select>
+					</div>
+                    <div class=" field">
                         <label class="label">Phone Number</label>
-                        <input class="input" type="text" placeholder="Phone Number">
+                        <input [(ngModel)]="user.phone" class="input" type="text" placeholder="Phone Number">
+                    </div>
+                    <div class=" field">
+                        <label class="label">Email</label>
+                        <input [(ngModel)]="user.email" class="input" type="text" placeholder="e.g. you@somesite.com">
                     </div>
                     <div class=" field">
                         <label class="label">Password</label>
-                        <input class="input" type="text" placeholder="Password ">
+                        <input [(ngModel)]="user.password" class="input" type="password" placeholder="Password ">
                     </div>
                     <div class=" field">
                         <label class="label">Confirm Password</label>
-                        <input class="input" type="text" placeholder="Confirm Password ">
+                        <input [(ngModel)]="user.confirm_password" class="input" type="password" placeholder="Confirm Password ">
                     </div>
-                  <button class="button" type="sign up">Create</button>
+                  <button (click)="create()" class="button" type="sign up">Create</button>
                 </div>
               </div>
                 

@@ -360,11 +360,6 @@ a {
 a:focus, button:focus, select:focus, input:focus {
   outline: 0; }
 
-input {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
 .button {
   padding: 4px 16px;
   margin: 0;
@@ -446,6 +441,15 @@ input {
       display: flex;
       justify-content: flex-end; }
 
+.is-success {
+  background-color: #75cc75;
+  padding: 10px;
+  margin-bottom: 10px; }
+
+.is-danger {
+  background-color: red;
+  padding: 10px; }
+
 .table {
   width: 100%;
   background-color: #FFFFFF; }
@@ -480,6 +484,14 @@ input {
   .payment-title h1 {
     font-size: 24px;
     font-weight: 600; }
+
+.row {
+  display: flex; }
+  .row .col-1 {
+    margin-right: 16px;
+    width: 100%; }
+  .row .col-2 {
+    width: 100%; }
 
 .form {
   border-radius: 0.25rem; }
