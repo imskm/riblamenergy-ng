@@ -30,65 +30,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><a routerLink="/project/1/show">1</a></td>
-                    <td>Project title</td>
-                    <td>Client one</td>
-                    <td>2,00,000</td>
-                    <td>10,000</td>
-                    <td>1,90,000</td>
-                    <td>70,000</td>
-                    <td>50,000</td>
-                    <td>May 12, 2021</td>
-                    <td><a routerLink="/project/1/edit">Edit</a></td>
-                  </tr>
-                  <tr>
-                    <td><a routerLink="/project/1/show">1</a></td>
-                    <td>Project title</td>
-                    <td>Client one</td>
-                    <td>2,00,000</td>
-                    <td>10,000</td>
-                    <td>1,90,000</td>
-                    <td>70,000</td>
-                    <td>50,000</td>
-                    <td>May 12, 2021</td>
-                    <td><a routerLink="/project/1/edit">Edit</a></td>
-                  </tr>
-                  <tr>
-                    <td><a routerLink="/project/1/show">1</a></td>
-                    <td>Project title</td>
-                    <td>Client one</td>
-                    <td>2,00,000</td>
-                    <td>10,000</td>
-                    <td>1,90,000</td>
-                    <td>70,000</td>
-                    <td>50,000</td>
-                    <td>May 12, 2021</td>
-                    <td><a routerLink="/project/1/edit">Edit</a></td>
-                  </tr>
-                  <tr>
-                    <td><a routerLink="/project/1/show">1</a></td>
-                    <td>Project title</td>
-                    <td>Client one</td>
-                    <td>2,00,000</td>
-                    <td>10,000</td>
-                    <td>1,90,000</td>
-                    <td>70,000</td>
-                    <td>50,000</td>
-                    <td>May 12, 2021</td>
-                    <td><a routerLink="/project/1/edit">Edit</a></td>
-                  </tr>
-                  <tr>
-                    <td><a routerLink="/project/1/show">1</a></td>
-                    <td>Project title</td>
-                    <td>Client one</td>
-                    <td>2,00,000</td>
-                    <td>10,000</td>
-                    <td>1,90,000</td>
-                    <td>70,000</td>
-                    <td>50,000</td>
-                    <td>May 12, 2021</td>
-                    <td><a routerLink="/project/1/edit">Edit</a></td>
+                  <tr *ngFor="let p of projects">
+                    <td><a routerLink="{{ '/project/'+ p.id +'/show' }}">{{ p.id }}</a></td>
+                    <td>{{ p.title }}</td>
+                    <td>{{ p.client_id }}</td>
+                    <td>{{ p.revenue }}</td>
+                    <td>{{ p.tax }}</td>
+                    <td>{{ p.net_revenue }}</td>
+                    <td>{{ p.commission_amount }}</td>
+                    <td>{{ p.commission_paid }}</td>
+                    <td>{{ p.created_at }}</td>
+                    <td><a routerLink="{{ '/project/'+ p.id +'/edit' }}">Edit</a></td>
                   </tr>
                 </tbody>
               </table>

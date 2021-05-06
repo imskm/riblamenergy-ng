@@ -17,42 +17,39 @@
                 <div class="main-form">
                   <div class="field">
                     <label class="label">Project Name</label>
-                    <input class="input" type="text" placeholder="Project name">
+                    <input [(ngModel)]="project.title" class="input" type="text" placeholder="Project name">
                   </div>
                   <div class="field">
                     <label class="label">Revenue</label>
-                    <input class="input" type="text" placeholder="Revenue">
+                    <input [(ngModel)]="project.revenue" (input)="calcNetRevenue()" class="input" type="text" placeholder="Revenue">
                   </div>
                   <div class="field">
                     <label class="label">Tax</label>
-                    <input class="input" type="text" placeholder="Tax">
+                    <input [(ngModel)]="project.tax" class="input" type="text" placeholder="Tax" readonly="">
                   </div>
                   <div class="field">
                     <label class="label">Net revenue</label>
-                    <input class="input" type="text" placeholder="Net revenue">
+                    <input [(ngModel)]="project.net_revenue" class="input" type="text" placeholder="Net revenue" readonly="">
                   </div>
                   <div class="field">
                     <label class="label">Commission rate</label>
-                    <input class="input" type="text" placeholder="Commission rate">
+                    <input [(ngModel)]="project.commission_rate" (input)="calcCommission()" class="input" type="text" placeholder="Commission rate">
                   </div>
                   <div class="field">
                     <label class="label">Commission amount</label>
-                    <input class="input" type="text" placeholder="Commission amount">
-                  </div>
-                  <div class="field">
-                    <label class="label">Date</label>
-                    <input class="input" type="date" placeholder="Project date" name="dob">
+                    <input [(ngModel)]="project.commission_amount" class="input" type="text" placeholder="Commission amount" readonly="">
                   </div>
                   <div class="field">
                     <label class="label">Select client</label>
-                    <select name="client_id">
+                    <select name="client_id" [(ngModel)]="project.client_id">
+                      <option value="0">Select client</option>
                       <option value="1">Client 1</option>
                       <option value="2">Client 2</option>
                       <option value="3">Client 3</option>
                     </select>
                   </div>
                 </div>
-                <button class="button" type="button">Create</button>
+                <button (click)="create()" class="button" type="button">Create</button>
               </div>                
             </div>
         </div>
