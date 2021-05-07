@@ -27,7 +27,6 @@
                     <tbody>
                       <tr *ngFor="let p of payments">
                         <td><a routerLink="{{ '/payment/'+ p.id +'/show' }}">{{ p.id }}</a></td>
-                        <td>{{ p.id }}</td>
                         <td>{{ p.project_id }}</td>
                         <td>{{ p.user_id }}</td>
                         <td>{{ p.amount }}</td>
@@ -35,7 +34,7 @@
                       </tr>
                     </tbody>
                 </table>
-                <div #elseBlock>No payment made yet</div>
+                <ng-template #elseBlock>No payment made yet</ng-template>
             
             </div>
         </div>
