@@ -14,7 +14,7 @@
 
             <div class="dashboard-content">
 
-                <table class="table has-alternate-bg">
+                <table *ngIf="payments.length; else elseBlock" class="table has-alternate-bg">
                     <thead>
                       <tr>
                         <th>ID</th>
@@ -25,37 +25,17 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td><a routerLink="/payment/1/show">1</a></td>
-                        <td>Project title</td>
-                        <td>ABB</td>
-                        <td>2,00,000</td>
-                        <td>july 12, 2021</td>
+                      <tr *ngFor="let p of payments">
+                        <td><a routerLink="{{ '/payment/'+ p.id +'/show' }}">{{ p.id }}</a></td>
+                        <td>{{ p.id }}</td>
+                        <td>{{ p.project_id }}</td>
+                        <td>{{ p.user_id }}</td>
+                        <td>{{ p.amount }}</td>
+                        <td>{{ p.created_at }}</td>
                       </tr>
-                      <tr>
-                        <td><a routerLink="/payment/1/show">1</a></td>
-                        <td>Project title</td>
-                        <td>ABB</td>
-                        <td>2,00,000</td>
-                        <td>july 12, 2021</td>
-                      </tr>
-                      <tr>
-                        <td><a routerLink="/payment/1/show">1</a></td>
-                        <td>Project title</td>
-                        <td>ABB</td>
-                        <td>2,00,000</td>
-                        <td>july 12, 2021</td>
-                      </tr>
-                      <tr>
-                        <td><a routerLink="/payment/1/show">1</a></td>
-                        <td>Project title</td>
-                        <td>ABB</td>
-                        <td>2,00,000</td>
-                        <td>july 12, 2021</td>
-                      </tr>
-
-                  </tbody>
-              </table>
+                    </tbody>
+                </table>
+                <div #elseBlock>No payment made yet</div>
             
             </div>
         </div>
