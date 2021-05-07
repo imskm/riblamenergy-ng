@@ -18,9 +18,9 @@
 					<div class="col-1">
 						<div class="field">
 							<label class="label">Search project</label>
-							<input class="input" type="text" placeholder="Search project">
+							<input [(ngModel)]="project_q" (input)="searchProject()" class="input" type="text" placeholder="Search project">
 						</div>
-						<table class="table has-alternate-bg">
+						<table *ngIf="projectsSearchResult.length; else elseBlock" class="table has-alternate-bg">
 							<thead>
 								<tr>
 									<th>ID</th>
@@ -30,45 +30,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
+								<tr *ngFor="let p of projectsSearchResult; let i=index">
+									<td>{{ p.id }}</td>
+									<td>{{ p.title }}</td>
+									<td>{{ p.created_at }}</td>
+									<td><button (click)="selectProject(i)" class="button" type="button">Select</button></td>
 								</tr>
 							</tbody>
 						</table>
+						<ng-template #elseBlock>Please search project from search box above</ng-template>
 					</div>
 					<div class="col-2">
 						<div class="field">
 							<label class="label">Search user</label>
-							<input class="input" type="text" placeholder="Search user">
+							<input [(ngModel)]="user_q" (input)="searchUser()" class="input" type="text" placeholder="Search user">
 						</div>
-						<table class="table has-alternate-bg">
+						<table *ngIf="usersSearchResult.length; else elseBlock" class="table has-alternate-bg" class="table has-alternate-bg">
 							<thead>
 								<tr>
 									<th>ID</th>
@@ -78,45 +55,30 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Test</td>
-									<td>8990900012</td>
-									<td><button class="button" type="button">Select</button></td>
+								<tr *ngFor="let u of usersSearchResult; let i=index">
+									<td>{{ u.id }}</td>
+									<td>{{ u.first_name + " " + u.last_name }}</td>
+									<td>{{ u.phone }}</td>
+									<td><button (click)="selectUser(i)" class="button" type="button">Select</button></td>
 								</tr>
 							</tbody>
 						</table>
+						<ng-template #elseBlock>Please search user from search box above</ng-template>
 					</div>
 				</div>
-				<div class="field" style="margin-top: 10px">
-					<label class="label">Amount</label>
-					<input class="input" type="text" placeholder="Amount">
+				<div class="field" style="margin-top: 1rem;">
+					<div *ngIf="selectedProject">
+						<label class="label"><strong>Selected project: {{ selectedProject.title }}</strong></label>
+					</div>
+					<div *ngIf="selectedUser">
+						<label class="label"><strong>Selected user: {{ selectedUser.first_name + " " + selectedUser.last_name }}</strong></label>
+					</div>
 				</div>
-				<button class="button" type="button">Create</button>
+				<div class="field" style="margin-top: 1rem;">
+					<label class="label">Amount</label>
+					<input [(ngModel)]="payment.amount" class="input" type="text" placeholder="Amount">
+				</div>
+				<button (click)="create()" class="button" type="button">Create</button>
 
 
 			</div>
