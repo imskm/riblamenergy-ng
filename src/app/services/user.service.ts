@@ -36,4 +36,8 @@ export class UserService {
 
     return this.http.post<UserModel>(url, post_data);
   }
+
+  search(q: string) {
+    return this.http.get(this.baseUrl + "/search?q=" + q);
+  }
 }

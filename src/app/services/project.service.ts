@@ -36,4 +36,8 @@ export class ProjectService {
 
     return this.http.post<ProjectModel>(url, post_data);
   }
+
+  search(q: string) {
+    return this.http.get(this.baseUrl + "/search?q=" + q);
+  }
 }
