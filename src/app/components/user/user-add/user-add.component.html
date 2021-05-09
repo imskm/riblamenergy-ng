@@ -26,9 +26,10 @@
                     </div>
                     <div class=" field">
                         <label class="label">Gender</label><br>
-                        <select name="gender">
-                            <option [(ngModel)]="user.gender" value="1">Male</option>
-                            <option [(ngModel)]="user.gender" value="2">Female</option>
+                        <select name="gender" [(ngModel)]="user.gender">
+                            <option value="0">Select gender</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
                         </select>
                     </div>
 					<div class="field">
