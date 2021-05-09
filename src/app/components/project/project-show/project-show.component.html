@@ -3,19 +3,138 @@
     <div class="dashboard-main">
         <app-header></app-header>
         <div class="dashboard-body">
-            <div class="dashboard-body-title-wrapper">
-                <div class="dashboard-body-title">
-                    <h1>Project</h1>
-                    <div>
-                        <a routerLink="/projects" class="button is-primary">Back</a>
-                    </div>
-                </div>
+        <div class="dashboard-body-title-wrapper">
+          <div class="dashboard-body-title">
+            <h1>Project Show</h1>
+            <div>
+              <a routerLink="/projects" class="button is-primary">Back</a>
+              <a href="#" class="button is-primary">Tree</a>
+              <a routerLink="/project/team/build" [queryParams]="{project_id: project_id}" class="button is-primary">Build Team</a>
             </div>
-
-            <div class="dashboard-content">
-                
-            </div>
+          </div>
         </div>
+
+        <div class="dashboard-content">
+          <table class="table has-alternate-bg">
+            <tbody>
+              <tr>
+                <th>ID</th>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>Project Name</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Revenue</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Tax</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Net Revenue</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Commission Rate</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Commission amount</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Client</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Comm.Paid</th>
+                <td>#######</td>
+              </tr>
+              <tr>
+                <th>Created at</th>
+                <td>#######</td>
+              </tr>
+              
+              
+            </tbody>
+          </table>
+          <div class="payment-show">
+            <div class="payment-title">
+              <h1>Payments</h1>
+            <div>
+              <a href="" class="button is-primary">New</a>
+            </div>
+            </div>
+            <table class="table has-alternate-bg">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Amount</th>
+                  <th>Project</th>
+                  <th>User</th>
+                  <th>Created At</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>1200</td>
+                  <td>1st project</td>
+                  <td>Test User</td>
+                  <td>May 12, 2021</td>
+                  <td></td>
+                </tr><tr>
+                  <td>1</td>
+                  <td>1200</td>
+                  <td>1st project</td>
+                  <td>Test User</td>
+                  <td>May 12, 2021</td>
+                  <td></td>
+                </tr><tr>
+                  <td>1</td>
+                  <td>1200</td>
+                  <td>1st project</td>
+                  <td>Test User</td>
+                  <td>May 12, 2021</td>
+                  <td></td>
+                </tr><tr>
+                  <td>1</td>
+                  <td>1200</td>
+                  <td>1st project</td>
+                  <td>Test User</td>
+                  <td>May 12, 2021</td>
+                  <td></td>
+                </tr><tr>
+                  <td>1</td>
+                  <td>1200</td>
+                  <td>1st project</td>
+                  <td>Test User</td>
+                  <td>May 12, 2021</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <div class="pagination is-fullwidth">
+                <a href="" class="pagination-prev">
+                  <span class="icon">
+                    <i class="ri-arrow-left-line"></i>
+                  </span>
+                </a>
+                <a href="" class="pagination-next">
+                  <span class="icon">
+                    <i class="ri-arrow-right-line"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
 </div>
