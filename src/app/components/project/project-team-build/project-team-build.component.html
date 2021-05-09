@@ -1,0 +1,132 @@
+<div class="dashboard">
+    <app-sidebar></app-sidebar>
+    <div class="dashboard-main">
+        <app-header></app-header>
+        <div class="dashboard-body">
+        <div class="dashboard-body-title-wrapper">
+          <div class="dashboard-body-title">
+            <h1>Team Builder</h1>
+            <div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-content">
+          <div style="margin-top: 1rem">
+            <p>Select Project</p>
+              <select [(ngModel)]="teamBuilder.project_id" name="project">
+                <option value="0">Select Project</option>
+                <option *ngFor="let p of projects" value="{{ p.id }}">{{ p.title }}</option>
+              </select>
+          </div>
+
+          <div class="field">
+            <label class="label">Select type of member you want to add in team</label><br>
+            <label><input type="radio" [(ngModel)]="teamBuilder.role" name="role" value="2"> Business Head</label>
+            <label><input type="radio" [(ngModel)]="teamBuilder.role" name="role" value="3"> Area Manager</label>
+            <label><input type="radio" [(ngModel)]="teamBuilder.role" name="role" value="4"> Field Engineer</label>
+          </div>
+
+          <div class="row">
+            <div class="col-1">
+              <div>
+                <label for="parent_q" class="label">Search parent</label>
+                <input [(ngModel)]="parent_q" (input)="searchParent()" type="text" class="input" placeholder="Search parent...">
+              </div>
+              <table class="table has-alternate-bg">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Phone</th>
+                      <th>Role</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let u of parentsSearchResult">
+                      <td>{{ u.id }}</td>
+                      <td>{{ u.first_name + " " + u.last_name }}</td>
+                      <td>{{ u.phone }}</td>
+                      <td>{{ roleText(u.role) }}</td>
+                      <td><button (click)="selectParent(u)" class="button" type="save">Select</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="col-2">
+              <p>
+                Selected parent:
+                <span *ngIf="selectedParent; else elseBlock">{{ selectedParent.id }}: {{ selectedParent.first_name + " " + selectedParent.last_name }}</span>
+                <ng-template #elseBlock></ng-template>
+              </p>
+            </div>
+          </div>
+
+
+          <div class="field">
+            <label class="lable">Search user</label>
+              <input [(ngModel)]="user_q" (input)="searchUser()" class="input" type="text" placeholder="Search user by name...">
+          </div>
+
+
+          <div class="row">
+            <div class="col-1">
+              <div class="search">
+                  <table class="table has-alternate-bg">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Full Name</th>
+                      <th>Phone</th>
+                      <th>Role</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let u of usersSearchResult">
+                      <td>{{ u.id }}</td>
+                      <td>{{ u.first_name + " " + u.last_name }}</td>
+                      <td>{{ u.phone }}</td>
+                      <td>{{ roleText(u.role) }}</td>
+                      <td><button (click)="addUser(u)" class="button" type="save">Add</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+            </div>
+            <div class="col-2">
+              <div>
+                <table class="table has-alternate-bg">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Phone</th>
+                    <th>Role</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let u of teamBuilder.children">
+                      <td>{{ u.id }}</td>
+                      <td>{{ u.first_name + " " + u.last_name }}</td>
+                      <td>{{ u.phone }}</td>
+                      <td>{{ u.role }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+
+            </div>
+          </div>
+
+              <div>
+                <button (click)="create()" class="button" type="save">Save</button>
+              </div>
+              
+
+      </div>
+    </div>
+
+    </div>
+</div>
