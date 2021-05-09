@@ -9,6 +9,7 @@
             <div>
               <a routerLink="/projects" class="button is-primary">Back</a>
               <a href="#" class="button is-primary">Tree</a>
+              <a routerLink="{{'/project/'+ project_id +'/team'}}" class="button is-primary">Team</a>
               <a routerLink="/project/team/build" [queryParams]="{project_id: project_id}" class="button is-primary">Build Team</a>
             </div>
           </div>

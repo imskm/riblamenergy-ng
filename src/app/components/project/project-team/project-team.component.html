@@ -1,0 +1,68 @@
+<div class="dashboard">
+    <app-sidebar></app-sidebar>
+    <div class="dashboard-main">
+        <app-header></app-header>
+        <div class="dashboard-body">
+        <div class="dashboard-body-title-wrapper">
+          <div class="dashboard-body-title">
+            <h1>Project Team</h1>
+            <div>
+              <a (click)="navigateBack()" class="button is-primary">Back</a>
+              <a href="#" class="button is-primary">Tree</a>
+              <a routerLink="/project/team/build" [queryParams]="{project_id: project_id}" class="button is-primary">Build Team</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-content">
+        	<table class="table has-alternate-bg">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Created At</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of users">
+                <td><a routerLink="{{'/user/' + u.id +'/show'}}">{{ u.id }}</a></td>
+                <td>{{ u.first_name }}</td>
+                <td>{{ u.last_name }}</td>
+                <td>{{ u.gender }}</td>
+                <td>{{ u.phone }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ roleText(u.role) }}</td>
+                <td>{{ u.created_at }}</td>
+                <td><a routerLink="{{ '/user/' + u.id + '/edit' }}">Edit</a></td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <div style="margin-top: 1rem;">
+            <div class="pagination">
+              <a href="" class="pagination-prev">
+                <span class="icon">
+                  <i class="ri-arrow-left-line"></i>
+                </span>
+              </a>
+              <a href="" class="pagination-page">
+                <span>1</span>
+              </a>
+              <a href="" class="pagination-next">
+                <span class="icon">
+                  <i class="ri-arrow-right-line"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>

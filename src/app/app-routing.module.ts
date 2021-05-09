@@ -11,6 +11,7 @@ import { ProjectAddComponent } from './components/project/project-add/project-ad
 import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
 import { ProjectShowComponent } from './components/project/project-show/project-show.component';
 import { ProjectTeamBuildComponent } from './components/project/project-team-build/project-team-build.component';
+import { ProjectTeamComponent } from './components/project/project-team/project-team.component';
 import { PaymentListComponent } from './components/payment/payment-list/payment-list.component';
 import { PaymentAddComponent } from './components/payment/payment-add/payment-add.component';
 import { PaymentShowComponent } from './components/payment/payment-show/payment-show.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'project/:id/edit', component: ProjectEditComponent },
   { path: 'project/:id/show', component: ProjectShowComponent },
   { path: 'project/team/build', component: ProjectTeamBuildComponent },
+  { path: 'project/:id/team', component: ProjectTeamComponent },
   { path: 'payments', component: PaymentListComponent },
   { path: 'payment/add', component: PaymentAddComponent },
   { path: 'payment/:id/show', component: PaymentShowComponent },

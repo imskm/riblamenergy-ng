@@ -40,4 +40,8 @@ export class ProjectService {
   search(q: string) {
     return this.http.get(this.baseUrl + "/search?q=" + q);
   }
+
+  fetchTeam(project_id: number) {
+    return this.http.get(this.baseUrl + "/" + project_id + "/team");
+  }
 }
