@@ -20,43 +20,43 @@
             <tbody>
               <tr>
                 <th>ID</th>
-                <td>1</td>
+                <td>{{ project.id }}</td>
               </tr>
               <tr>
                 <th>Project Name</th>
-                <td>#######</td>
+                <td>{{ project.title }}</td>
               </tr>
               <tr>
                 <th>Revenue</th>
-                <td>#######</td>
+                <td>{{ project.revenue }}</td>
               </tr>
               <tr>
                 <th>Tax</th>
-                <td>#######</td>
+                <td>{{ project.tax }}</td>
               </tr>
               <tr>
                 <th>Net Revenue</th>
-                <td>#######</td>
+                <td>{{ project.net_revenue }}</td>
               </tr>
               <tr>
                 <th>Commission Rate</th>
-                <td>#######</td>
+                <td>{{ project.commission_rate }}</td>
               </tr>
               <tr>
                 <th>Commission amount</th>
-                <td>#######</td>
+                <td>{{ project.commission_amount }}</td>
               </tr>
               <tr>
                 <th>Client</th>
-                <td>#######</td>
+                <td>{{ project.client_id }}</td>
               </tr>
               <tr>
-                <th>Comm.Paid</th>
-                <td>#######</td>
+                <th>Comm. Paid</th>
+                <td>{{ project.paid_amount }}</td>
               </tr>
               <tr>
                 <th>Created at</th>
-                <td>#######</td>
+                <td>{{ project.created_at }}</td>
               </tr>
               
               
@@ -65,61 +65,33 @@
           <div class="payment-show">
             <div class="payment-title">
               <h1>Payments</h1>
-            <div>
-              <a href="" class="button is-primary">New</a>
+              <div>
+                <a href="" class="button is-primary">New</a>
+              </div>
             </div>
-            </div>
-            <table class="table has-alternate-bg">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Amount</th>
-                  <th>Project</th>
-                  <th>User</th>
-                  <th>Created At</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>1200</td>
-                  <td>1st project</td>
-                  <td>Test User</td>
-                  <td>May 12, 2021</td>
-                  <td></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td>1200</td>
-                  <td>1st project</td>
-                  <td>Test User</td>
-                  <td>May 12, 2021</td>
-                  <td></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td>1200</td>
-                  <td>1st project</td>
-                  <td>Test User</td>
-                  <td>May 12, 2021</td>
-                  <td></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td>1200</td>
-                  <td>1st project</td>
-                  <td>Test User</td>
-                  <td>May 12, 2021</td>
-                  <td></td>
-                </tr><tr>
-                  <td>1</td>
-                  <td>1200</td>
-                  <td>1st project</td>
-                  <td>Test User</td>
-                  <td>May 12, 2021</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-            <div>
+            <div *ngIf="payments.length; else elseBlock">
+              <table class="table has-alternate-bg">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Amount</th>
+                    <th>Project</th>
+                    <th>User</th>
+                    <th>Paid At</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of payments">
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.amount }}</td>
+                    <td>{{ p.id }}</td>
+                    <td><a routerLink="{{'/user/'+ p.user_id +'/show'}}"></a>{{ p.user_id }}</td>
+                    <td>{{ p.created_at }}</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
               <div class="pagination is-fullwidth">
                 <a href="" class="pagination-prev">
                   <span class="icon">
@@ -133,6 +105,7 @@
                 </a>
               </div>
             </div>
+            <ng-template #elseBlock>No payment made yet.</ng-template>
           </div>
         </div>
       </div>
