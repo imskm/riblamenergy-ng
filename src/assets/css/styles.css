@@ -450,6 +450,17 @@ a:focus, button:focus, select:focus, input:focus {
   background-color: red;
   padding: 10px; }
 
+.avatar {
+  display: inline-flex;
+  width: 100px;
+  height: 100px;
+  object-fit: cover; }
+  .avatar.is-md {
+    width: 140px;
+    height: 140px; }
+  .avatar.is-rounded-full {
+    border-radius: 100%; }
+
 .table {
   width: 100%;
   background-color: #FFFFFF; }
@@ -494,18 +505,22 @@ a:focus, button:focus, select:focus, input:focus {
     width: 100%; }
 
 .form {
-  border-radius: 0.25rem; }
+  border-radius: 0.25rem;
+  background-color: #FFFFFF;
+  border-radius: .5rem; }
 
 .main-form {
   padding: 20px 10px;
+  width: 100%; }
+
+.field {
+  margin-bottom: 1.5rem;
   width: 100%; }
 
 .input {
   background-color: white;
   border: 0;
   outline: 0;
-  margin-top: 10px;
-  margin-bottom: 15px;
   height: 40px;
   padding-left: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -513,6 +528,11 @@ a:focus, button:focus, select:focus, input:focus {
   width: 100%; }
   .input:focus {
     border: 1px solid #CCCCCC; }
+
+.label {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
 
 .dashboard .dashboard-sidebar {
   width: 270px;
@@ -525,25 +545,41 @@ a:focus, button:focus, select:focus, input:focus {
     width: 100px;
     margin: 0 auto;
     overflow: hidden;
-    margin-bottom: 50px; }
+    margin-bottom: 10px; }
     .dashboard .dashboard-sidebar .dashboard-brand .logo {
       height: 80px; }
   .dashboard .dashboard-sidebar .dashboard-menu {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    margin-top: 2rem; }
     .dashboard .dashboard-sidebar .dashboard-menu .dashboard-menu-item {
       display: block;
       padding: 8px 20px;
       color: #FFFFFF;
       font-weight: 600; }
+.dashboard .dashbar-profile {
+  padding: 1rem; }
+  .dashboard .dashbar-profile .profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .dashboard .dashbar-profile .profile-wrapper .profile-description {
+      margin-top: 1rem;
+      color: #FFFFFF;
+      font-size: 14px; }
 .dashboard .dashboard-main {
   padding-left: 270px;
   background-color: rgba(145, 70, 255, 0.05);
   min-height: 100vh; }
   .dashboard .dashboard-main .dashboard-header {
+    display: flex;
     height: 60px;
+    padding: .75rem;
     background-color: #FFFFFF;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25); }
+    .dashboard .dashboard-main .dashboard-header-left, .dashboard .dashboard-main .dashboard-header-right {
+      flex: 1; }
   .dashboard .dashboard-main .dashboard-body {
     padding: 20px 12px; }
     .dashboard .dashboard-main .dashboard-body .dashboard-body-title-wrapper {

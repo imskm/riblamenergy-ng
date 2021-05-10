@@ -12,8 +12,8 @@
         </div>
 
         <div class="dashboard-content">
-          <div style="margin-top: 1rem">
-            <p>Select Project</p>
+          <div class="field">
+            <label class="label">Select Project</label>
               <select [(ngModel)]="teamBuilder.project_id" name="project">
                 <option value="0">Select Project</option>
                 <option *ngFor="let p of projects" value="{{ p.id }}">{{ p.title }}</option>
@@ -21,15 +21,15 @@
           </div>
 
           <div class="field">
-            <label class="label">Select type of member you want to add in team</label><br>
+            <label class="label">Select type of member you want to add in team</label>
             <label><input type="radio" [(ngModel)]="teamBuilder.role" name="role" value="2"> Business Head</label>
             <label><input type="radio" [(ngModel)]="teamBuilder.role" name="role" value="3"> Area Manager</label>
             <label><input type="radio" [(ngModel)]="teamBuilder.role" name="role" value="4"> Field Engineer</label>
           </div>
 
-          <div class="row">
+          <div class="row" style="margin-bottom: 1rem;">
             <div class="col-1">
-              <div>
+              <div class="field">
                 <label for="parent_q" class="label">Search parent</label>
                 <input [(ngModel)]="parent_q" (input)="searchParent()" type="text" class="input" placeholder="Search parent...">
               </div>
@@ -55,17 +55,17 @@
                 </table>
             </div>
             <div class="col-2">
-              <p>
+              <label class="label">
                 Selected parent:
                 <span *ngIf="selectedParent; else elseBlock">{{ selectedParent.id }}: {{ selectedParent.first_name + " " + selectedParent.last_name }}</span>
                 <ng-template #elseBlock></ng-template>
-              </p>
+              </label>
             </div>
           </div>
 
 
           <div class="field">
-            <label class="lable">Search user</label>
+            <label class="label">Search user</label>
               <input [(ngModel)]="user_q" (input)="searchUser()" class="input" type="text" placeholder="Search user by name...">
           </div>
 
