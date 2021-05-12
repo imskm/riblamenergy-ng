@@ -4,14 +4,15 @@ import { Observable, of } from 'rxjs';
 
 import { TeamBuilderModel } from '../models/team-builder.model';
 import { FormBuilder } from '../helpers/formbuilder';
+import { HttpRequestService } from './http-request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamBuilderService {
-  baseUrl       = "http://riblamenergy/admin/team-builder";
+  baseUrl       = "admin/team-builder";
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpRequest: HttpRequestService) { }
 
   create(teamBuilderModel: TeamBuilderModel): Observable<any> {
     const post_data = new FormData();
@@ -21,11 +22,10 @@ export class TeamBuilderService {
       post_data.append("parent", teamBuilderModel.parent.toString());
     }
     teamBuilderModel.children.forEach((c: any) => {
-      console.log(c.id);
       post_data.append("children[]", c.id);
     });
 
-    return this.http.post(this.baseUrl + "/assign-member", post_data, {});
+    return this.httpRequest.post(this.baseUrl + "/assign-member", post_data);
   }
 
 }
