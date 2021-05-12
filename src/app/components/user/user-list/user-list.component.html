@@ -20,7 +20,6 @@
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Gender</th>
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Role</th>
@@ -33,10 +32,9 @@
                 <td><a routerLink="{{'/user/' + u.id +'/show'}}">{{ u.id }}</a></td>
                 <td>{{ u.first_name }}</td>
                 <td>{{ u.last_name }}</td>
-                <td>{{ u.gender }}</td>
                 <td>{{ u.phone }}</td>
                 <td>{{ u.email }}</td>
-                <td>{{ u.role }}</td>
+                <td>{{ roleText(u.role) }}</td>
                 <td>{{ u.created_at }}</td>
                 <td><a routerLink="{{ '/user/' + u.id + '/edit' }}">Edit</a></td>
               </tr>
