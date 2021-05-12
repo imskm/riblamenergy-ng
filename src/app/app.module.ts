@@ -25,6 +25,7 @@ import { ProjectShowComponent } from './components/project/project-show/project-
 import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
 import { ProjectTeamBuildComponent } from './components/project/project-team-build/project-team-build.component';
 import { ProjectTeamComponent } from './components/project/project-team/project-team.component';
+import { UsersIndexComponent } from './components/user/users-index/users-index.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ProjectTeamComponent } from './components/project/project-team/project-
     ProjectEditComponent,
     ProjectTeamBuildComponent,
     ProjectTeamComponent,
+    UsersIndexComponent,
   ],
   imports: [
     BrowserModule,
