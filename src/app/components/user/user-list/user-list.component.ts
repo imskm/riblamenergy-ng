@@ -34,4 +34,12 @@ export class UserListComponent implements OnInit {
   	this.users.unshift(user);
   }
 
+  genderText(gender: number) {
+    return gender == 1? "Male" : "Female";
+  }
+
+  roleText(role: number) {
+    return (role == 2) ? "Business Head" : ((role == 3) ? "Area Manager" : ((role == 4) ? "Field Engineer" : "Unknown"));
+  }
+
 }
