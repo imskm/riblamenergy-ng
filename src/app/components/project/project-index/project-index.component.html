@@ -1,0 +1,47 @@
+<table class="table has-alternate-bg">
+	<thead>
+	  <tr>
+	    <th>ID</th>
+	    <th>Project Name</th>
+	    <th>Client</th>
+	    <th>Revenue</th>
+	    <th>Tax</th>
+	    <th>Net Revenue</th>
+	    <th>Commission</th>
+	    <th>Comm. Paid</th>
+	    <th>Created At</th>
+	    <th></th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr *ngFor="let p of projectList">
+	    <td><a routerLink="{{ '/project/'+ p.id +'/show' }}">{{ p.id }}</a></td>
+	    <td>{{ p.title }}</td>
+	    <td>{{ p.client_id }}</td>
+	    <td>{{ p.revenue }}</td>
+	    <td>{{ p.tax }}</td>
+	    <td>{{ p.net_revenue }}</td>
+	    <td>{{ p.commission_amount }}</td>
+	    <td>{{ p.commission_paid }}</td>
+	    <td>{{ p.created_at }}</td>
+	    <td><a routerLink="{{ '/project/'+ p.id +'/edit' }}">Edit</a></td>
+	  </tr>
+	</tbody>
+	</table>
+	<div style="margin-top: 1rem;">
+	<div class="pagination">
+	  <a href="" class="pagination-prev">
+	    <span class="icon">
+	      <i class="ri-arrow-left-line"></i>
+	    </span>
+	  </a>
+	  <a href="" class="pagination-page">
+	    <span>1</span>
+	  </a>
+	  <a href="" class="pagination-next">
+	    <span class="icon">
+	      <i class="ri-arrow-right-line"></i>
+	    </span>
+	  </a>
+	</div>
+</div>

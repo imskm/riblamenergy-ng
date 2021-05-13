@@ -1,0 +1,44 @@
+<table *ngIf="project" class="table has-alternate-bg">
+	<tbody>
+	  <tr>
+	    <th>ID</th>
+	    <td>{{ project.id }}</td>
+	  </tr>
+	  <tr>
+	    <th>Project Name</th>
+	    <td>{{ project.title }}</td>
+	  </tr>
+	  <tr>
+	    <th>Revenue</th>
+	    <td>{{ project.revenue }}</td>
+	  </tr>
+	  <tr>
+	    <th>Tax</th>
+	    <td>{{ project.tax }}</td>
+	  </tr>
+	  <tr>
+	    <th>Net Revenue</th>
+	    <td>{{ project.net_revenue }}</td>
+	  </tr>
+	  <tr>
+	    <th>Commission Rate</th>
+	    <td>{{ project.commission_rate }}</td>
+	  </tr>
+	  <tr>
+	    <th>Commission amount</th>
+	    <td>{{ project.commission_amount }}</td>
+	  </tr>
+	  <tr>
+	    <th>Client</th>
+	    <td>{{ project.client_id }}</td>
+	  </tr>
+	  <tr>
+	    <th>Comm. Paid</th>
+	    <td>{{ project.paid_amount }}</td>
+	  </tr>
+	  <tr>
+	    <th>Created at</th>
+	    <td>{{ project.created_at }}</td>
+	  </tr>
+	</tbody>
+</table>

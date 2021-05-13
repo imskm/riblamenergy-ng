@@ -26,6 +26,10 @@ import { ProjectEditComponent } from './components/project/project-edit/project-
 import { ProjectTeamBuildComponent } from './components/project/project-team-build/project-team-build.component';
 import { ProjectTeamComponent } from './components/project/project-team/project-team.component';
 import { UsersIndexComponent } from './components/user/users-index/users-index.component';
+import { ProjectIndexComponent } from './components/project/project-index/project-index.component';
+import { PaymentIndexComponent } from './components/payment/payment-index/payment-index.component';
+import { UserSingleComponent } from './components/user/user-single/user-single.component';
+import { ProjectSingleComponent } from './components/project/project-single/project-single.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,10 @@ import { UsersIndexComponent } from './components/user/users-index/users-index.c
     ProjectTeamBuildComponent,
     ProjectTeamComponent,
     UsersIndexComponent,
+    ProjectIndexComponent,
+    PaymentIndexComponent,
+    UserSingleComponent,
+    ProjectSingleComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,205 +14,33 @@
 
             <div class="dashboard-content">
 
-              <table class="table has-alternate-bg">
-                <tbody>
-                  <tr>
-                    <th>ID</th>
-                    <td>{{ user.id }}</td>
-                  </tr>
-                  <tr>
-                    <th>Avatar</th>
-                    <td><img src="" alt=""></td>
-                  </tr>
-                  <tr>
-                    <th>Full Name</th>
-                    <td>{{ user.first_name + " " + user.last_name }}</td>
-                  </tr>
-                  <tr>
-                    <th>Gender</th>
-                    <td>{{ user.gender }}</td>
-                  </tr>
-                  <tr>
-                    <th>Mobile Number</th>
-                    <td>{{ user.phone }}</td>
-                  </tr>
-                  <tr>
-                    <th>Email Address</th>
-                    <td>{{ user.email }}</td>
-                  </tr>
-                  <tr>
-                    <th>Created at</th>
-                    <td>{{ user.created_at }}</td>
-                  </tr>
-                </tbody>
-              </table>
+                <app-user-single [user]="user"></app-user-single>
+                
                 <div class="project-show">
                   <div class="project-title">
-                    <h1>Project</h1>
-                  <div>
-                    <a routerLink="/project/add" class="button is-primary">New</a>
-                  </div>
-                  </div>
-                  <table class="table has-alternate-bg">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Revenue</th>
-                        <th>Tax</th>
-                        <th>Net Revenue</th>
-                        <th>Commission Amount</th>
-                        <th>Paid Amount</th>
-                        <th>Client</th>
-                        <th>Created At</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Test</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>8990900012</td>
-                        <td>May 12, 2021</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>User</td>
-                        <td>8990900012</td>
-                        <td>May 12, 2021</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>Test</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>User</td>
-                        <td>8990900012</td>
-                        <td>May 12, 2021</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>User</td>
-                        <td>8990900012</td>
-                        <td>May 12, 2021</td>
-                      </tr><tr>
-                        <td>1</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>User</td>
-                        <td>8990900012</td>
-                        <td>May 12, 2021</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div>
-                    <div class="pagination is-fullwidth">
-                      <a href="" class="pagination-prev">
-                        <span class="icon">
-                          <i class="ri-arrow-left-line"></i>
-                        </span>
-                      </a>
-                      <a href="" class="pagination-next">
-                        <span class="icon">
-                          <i class="ri-arrow-right-line"></i>
-                        </span>
-                      </a>
+                    <h1>Projects</h1>
+                    <div>
+                      <a routerLink="/project/add" class="button is-primary">New</a>
                     </div>
                   </div>
+                
+                  <app-project-index *ngIf="projects.length; else elseBlock" [projectList]="projects"></app-project-index>
+                  <ng-template #elseBlock>User did not worked on any project yet.</ng-template>
+
                 </div>
 
 
                 <div class="payment-show">
                   <div class="payment-title">
-                    <h1>Payment</h1>
+                    <h1>Payments</h1>
                   <div>
                     <a routerLink="/payment/add" class="button is-primary">New</a>
                   </div>
                   </div>
-                  <table class="table has-alternate-bg">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Amount</th>
-                        <th>Project</th>
-                        <th>User</th>
-                        <th>Created At</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>1200</td>
-                        <td>1st project</td>
-                        <td>Test User</td>
-                        <td>May 12, 2021</td>
-                        <td></td>
-                      </tr><tr>
-                        <td>1</td>
-                        <td>1200</td>
-                        <td>1st project</td>
-                        <td>Test User</td>
-                        <td>May 12, 2021</td>
-                        <td></td>
-                      </tr><tr>
-                        <td>1</td>
-                        <td>1200</td>
-                        <td>1st project</td>
-                        <td>Test User</td>
-                        <td>May 12, 2021</td>
-                        <td></td>
-                      </tr><tr>
-                        <td>1</td>
-                        <td>1200</td>
-                        <td>1st project</td>
-                        <td>Test User</td>
-                        <td>May 12, 2021</td>
-                        <td></td>
-                      </tr><tr>
-                        <td>1</td>
-                        <td>1200</td>
-                        <td>1st project</td>
-                        <td>Test User</td>
-                        <td>May 12, 2021</td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div>
-                    <div class="pagination is-fullwidth">
-                      <a href="" class="pagination-prev">
-                        <span class="icon">
-                          <i class="ri-arrow-left-line"></i>
-                        </span>
-                      </a>
-                      <a href="" class="pagination-next">
-                        <span class="icon">
-                          <i class="ri-arrow-right-line"></i>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
+
+                  <app-payment-index *ngIf="payments.length; else elseBlock"></app-payment-index>
+                  <ng-template #elseBlock>User did not get any payment yet</ng-template>
+                
                 </div>
             </div>
         </div>

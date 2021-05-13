@@ -14,6 +14,8 @@ import { UserModel } from '../../../models/user.model';
 })
 export class UserShowComponent implements OnInit {
   user: UserModel;
+  projects = [];
+  payments = [];
 
   constructor(
     private route: ActivatedRoute,
