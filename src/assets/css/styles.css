@@ -441,14 +441,29 @@ a:focus, button:focus, select:focus, input:focus {
       display: flex;
       justify-content: flex-end; }
 
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 500px; }
+  .notification.toast-notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999; }
+
 .is-success {
-  background-color: #75cc75;
-  padding: 10px;
-  margin-bottom: 10px; }
+  background-color: #c2fdd2;
+  color: #0ED543;
+  box-shadow: 10px 10px 20px rgba(194, 253, 210, 0.5); }
 
 .is-danger {
-  background-color: red;
-  padding: 10px; }
+  background-color: #ff9b9b;
+  color: #C80E0E;
+  box-shadow: 10px 10px 20px rgba(255, 155, 155, 0.5); }
 
 .avatar {
   display: inline-flex;
@@ -456,8 +471,8 @@ a:focus, button:focus, select:focus, input:focus {
   height: 100px;
   object-fit: cover; }
   .avatar.is-md {
-    width: 140px;
-    height: 140px; }
+    width: 120px;
+    height: 120px; }
   .avatar.is-rounded-full {
     border-radius: 100%; }
 
