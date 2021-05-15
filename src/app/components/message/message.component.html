@@ -1,0 +1,3 @@
+<div *ngIf="msgService.message.length" [class]="{'is-success': msgService.isSuccess, 'is-danger': !msgService.isSuccess}" class="notification toast-notification">
+	{{ msgService.message }}
+</div>
