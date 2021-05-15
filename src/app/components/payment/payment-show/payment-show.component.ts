@@ -10,8 +10,8 @@ import { UserModel } from '../../../models/user.model';
 })
 export class PaymentShowComponent implements OnInit {
 
-  project: ProjectModel;
-  user: UserModel;
+  project: ProjectModel = null;
+  user: UserModel = null;
 
   constructor() { }
 

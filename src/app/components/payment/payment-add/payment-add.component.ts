@@ -1,8 +1,10 @@
 import { Component, OnInit, Injectable } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { PaymentService } from '../../../services/payment.service';
 import { UserService } from '../../../services/user.service';
 import { ProjectService } from '../../../services/project.service';
+import { MessageService } from '../../../services/message.service';
 import { PaymentModel } from '../../../models/payment.model';
 import { ProjectModel } from '../../../models/project.model';
 import { UserModel } from '../../../models/user.model';
@@ -38,7 +40,10 @@ export class PaymentAddComponent implements OnInit {
 
   constructor(private paymentService: PaymentService,
   	private projectService: ProjectService,
-  	private userService: UserService
+  	private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private msgService: MessageService
   ) {
   	this.projectsSearchResult = [];
   	this.usersSearchResult = [];
@@ -91,6 +96,10 @@ export class PaymentAddComponent implements OnInit {
   	this.paymentService.create(this.payment)
   		.subscribe((res) => {
   			// @TODO Handle success/error response
+        const id = res.data.id;
+        const url = `/payment/${id}/show`;
+        this.msgService.set("Payment created successfully");
+        this.router.navigate([url]);
   		});
   }
 

@@ -62,7 +62,8 @@
 						</div>
 					</div>
 
-					<app-user-single [user]="user"></app-user-single>
+					<app-user-single *ngIf="user; else elseBlock" [user]="user"></app-user-single>
+					<ng-template #elseBlock>No user found</ng-template>
 
 					<div>
 						<div class="pagination is-fullwidth">
@@ -80,6 +81,7 @@
 					</div>
 				</div>
 
+				<app-message></app-message>
 
 			</div>
 		</div>

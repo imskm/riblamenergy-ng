@@ -1,6 +1,8 @@
 import { Component, OnInit, Injectable } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ProjectService } from '../../../services/project.service';
+import { MessageService } from '../../../services/message.service';
 import { ProjectModel } from '../../../models/project.model';
 import { ClientModel } from '../../../models/client.model';
 
@@ -17,7 +19,12 @@ export class ProjectAddComponent implements OnInit {
 	project = new ProjectModel("", 0, 0, 0);
   tax_rate = 0.18;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private projectService: ProjectService,
+    private msgService: MessageService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +33,10 @@ export class ProjectAddComponent implements OnInit {
   	this.projectService.create(this.project)
   		.subscribe((res) => {
         // @TODO Show success/error message
+        const id = res.data.id;
+        const url = `/project/${id}/show`;
+        this.msgService.set("Project created successfully");
+        this.router.navigate([url]);
   		});
   }
 

@@ -30,6 +30,7 @@ import { ProjectIndexComponent } from './components/project/project-index/projec
 import { PaymentIndexComponent } from './components/payment/payment-index/payment-index.component';
 import { UserSingleComponent } from './components/user/user-single/user-single.component';
 import { ProjectSingleComponent } from './components/project/project-single/project-single.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { ProjectSingleComponent } from './components/project/project-single/proj
     PaymentIndexComponent,
     UserSingleComponent,
     ProjectSingleComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
