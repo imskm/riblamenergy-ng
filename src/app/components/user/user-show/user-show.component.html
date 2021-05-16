@@ -38,7 +38,7 @@
                   </div>
                   </div>
 
-                  <app-payment-index *ngIf="payments.length; else elseBlock"></app-payment-index>
+                  <app-payment-index *ngIf="payments.length; else elseBlock" [paymentList]="payments"></app-payment-index>
                   <ng-template #elseBlock>User did not get any payment yet</ng-template>
                 
                 </div>

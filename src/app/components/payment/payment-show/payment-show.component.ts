@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
+import { PaymentModel } from '../../../models/payment.model';
 import { ProjectModel } from '../../../models/project.model';
 import { UserModel } from '../../../models/user.model';
+
+import { PaymentService } from '../../../services/payment.service';
 
 @Component({
   selector: 'app-payment-show',
@@ -10,12 +14,23 @@ import { UserModel } from '../../../models/user.model';
 })
 export class PaymentShowComponent implements OnInit {
 
+  payment: PaymentModel;
   project: ProjectModel = null;
   user: UserModel = null;
 
-  constructor() { }
+  constructor(
+  	private route: ActivatedRoute,
+  	private router: Router,
+  	private paymentService: PaymentService
+  ) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get("id");
+    this.paymentService.get(Number(id)).subscribe((res: any) => {
+      this.payment = res.data.payment;
+      this.project = res.data.project;
+      this.user = res.data.user;
+    });
   }
 
 }

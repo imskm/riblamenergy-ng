@@ -14,26 +14,7 @@
 
             <div class="dashboard-content">
 
-                <table *ngIf="payments.length; else elseBlock" class="table has-alternate-bg">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Project</th>
-                        <th>User</th>
-                        <th>Amount</th>
-                        <th>Paid at</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let p of payments">
-                        <td><a routerLink="{{ '/payment/'+ p.id +'/show' }}">{{ p.id }}</a></td>
-                        <td>{{ p.project_id }}</td>
-                        <td>{{ p.user_id }}</td>
-                        <td>{{ p.amount }}</td>
-                        <td>{{ p.created_at }}</td>
-                      </tr>
-                    </tbody>
-                </table>
+                <app-payment-index *ngIf="payments.length; else elseBlock" [paymentList]="payments"></app-payment-index>
                 <ng-template #elseBlock>No payment made yet</ng-template>
             
             </div>

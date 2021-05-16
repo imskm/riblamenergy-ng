@@ -19,23 +19,23 @@
 					<tbody>
 						<tr>
 							<th>ID</th>
-							<td>1</td>
+							<td>{{ payment.id }}</td>
 						</tr>
 						<tr>
 							<th>Project</th>
-							<td>Project title</td>
+							<td>{{ project.title }}</td>
 						</tr>
 						<tr>
 							<th>Amount</th>
-							<td>2,00,000</td>
+							<td>{{ payment.amount }}</td>
 						</tr>
 						<tr>
 							<th>User</th>
-							<td>100000000</td>
+							<td>{{ user.id }}</td>
 						</tr>
 						<tr>
 							<th>Paid at</th>
-							<td>22.04.2021</td>
+							<td>{{ payment.created_at }}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -65,20 +65,6 @@
 					<app-user-single *ngIf="user; else elseBlock" [user]="user"></app-user-single>
 					<ng-template #elseBlock>No user found</ng-template>
 
-					<div>
-						<div class="pagination is-fullwidth">
-							<a href="" class="pagination-prev">
-								<span class="icon">
-									<i class="ri-arrow-left-line"></i>
-								</span>
-							</a>
-							<a href="" class="pagination-next">
-								<span class="icon">
-									<i class="ri-arrow-right-line"></i>
-								</span>
-							</a>
-						</div>
-					</div>
 				</div>
 
 				<app-message></app-message>

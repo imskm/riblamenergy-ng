@@ -26,8 +26,9 @@ export class UserShowComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get("id");
     this.userService.get(Number(id)).subscribe((res: any) => {
-      this.user = res.data;
-      // @TODO Handle error/not found response
+      this.user = res.data.user;
+      this.projects = res.data.projects;
+      this.payments = res.data.payments;
     });
   }
 
