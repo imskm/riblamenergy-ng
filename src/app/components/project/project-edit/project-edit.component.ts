@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ProjectService } from '../../../services/project.service';
+import { MessageService } from '../../../services/message.service';
 import { ProjectModel } from '../../../models/project.model';
 
 @Injectable({
@@ -20,7 +21,8 @@ export class ProjectEditComponent implements OnInit {
   constructor(
   	private route: ActivatedRoute,
   	private router: Router,
-  	private projectService: ProjectService
+  	private projectService: ProjectService,
+    private msgService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +48,9 @@ export class ProjectEditComponent implements OnInit {
   update(): void {
   	const id = this.route.snapshot.paramMap.get("id");
     this.projectService.update(Number(id), this.project).subscribe((res: any) => {
-    	// @TODO Handle success/error response (notification)
+      const url = `/project/${id}/show`;
+      this.msgService.set("Project updated successfully");
+      this.router.navigate([url]);
     });
   }
 

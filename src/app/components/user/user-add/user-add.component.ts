@@ -30,8 +30,6 @@ export class UserAddComponent implements OnInit {
   create() {
   	this.userService.create(this.user)
   		.subscribe((res) => {
-        // @TODO Show success/error message
-        console.log(res);
         const id = res.data.id;
         const url = `/user/${id}/show`;
         this.msgService.set("User created successfully");
