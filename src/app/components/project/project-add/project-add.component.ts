@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ProjectService } from '../../../services/project.service';
+import { ClientService } from '../../../services/client.service';
 import { MessageService } from '../../../services/message.service';
 import { ProjectModel } from '../../../models/project.model';
 import { ClientModel } from '../../../models/client.model';
@@ -18,15 +19,18 @@ export class ProjectAddComponent implements OnInit {
 
 	project = new ProjectModel("", 0, 0, 0);
   tax_rate = 0.18;
+  clients = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private projectService: ProjectService,
-    private msgService: MessageService
+    private msgService: MessageService,
+    private clientService: ClientService
   ) { }
 
   ngOnInit(): void {
+    this.fetchClients();
   }
 
   create() {
@@ -50,6 +54,12 @@ export class ProjectAddComponent implements OnInit {
   calcCommission() {
     const rate = this.project.commission_rate;
     this.project.commission_amount = this.project.net_revenue * (rate / 100);
+  }
+
+  fetchClients() {
+    this.clientService.fetch().subscribe((res: any) => {
+      this.clients = res.data;
+    });
   }
 
 }

@@ -43,9 +43,7 @@
                     <label class="label">Select client</label>
                     <select name="client_id" [(ngModel)]="project.client_id">
                       <option value="0">Select client</option>
-                      <option value="1">Client 1</option>
-                      <option value="2">Client 2</option>
-                      <option value="3">Client 3</option>
+                      <option *ngFor="let c of clients" [value]="c.id">{{ c.full_name }}</option>
                     </select>
                   </div>
                 </div>
