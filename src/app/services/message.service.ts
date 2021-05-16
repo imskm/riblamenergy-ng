@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class MessageService {
 
   message: string = "";
+  errorMessages = [];
   isSuccess: boolean = true;
 
   constructor() { }
@@ -19,5 +20,15 @@ export class MessageService {
   		this.message = "";
 		console.log("Message service timeout called");
   	}, 4000);
+  }
+
+  public setError(errors: any) {
+    const keys = Object.keys(errors);
+    keys.forEach((element) => {
+      this.errorMessages.push(errors[element]);
+    })
+    setTimeout(() => {
+      this.errorMessages = [];
+    }, 10000);
   }
 }

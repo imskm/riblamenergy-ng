@@ -1,3 +1,9 @@
+<div *ngIf="msgService.errorMessages.length" class="notification is-danger">
+	<ul>
+		<li *ngFor="let e of msgService.errorMessages">{{ e }}</li>
+	</ul>
+</div>
+
 <div *ngIf="msgService.message.length" [class]="{'is-success': msgService.isSuccess, 'is-danger': !msgService.isSuccess}" class="notification toast-notification">
 	{{ msgService.message }}
 </div>
