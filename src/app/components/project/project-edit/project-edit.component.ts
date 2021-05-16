@@ -26,7 +26,8 @@ export class ProjectEditComponent implements OnInit {
   ngOnInit(): void {
   	const id = this.route.snapshot.paramMap.get("id");
     this.projectService.get(Number(id)).subscribe((res: any) => {
-      const data = res.data;
+      const result = res.data;
+      const data   = result.project;
       this.project = new ProjectModel(
       	data.title,
       	Number(data.revenue),
