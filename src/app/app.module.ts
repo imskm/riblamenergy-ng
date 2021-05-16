@@ -31,6 +31,9 @@ import { PaymentIndexComponent } from './components/payment/payment-index/paymen
 import { UserSingleComponent } from './components/user/user-single/user-single.component';
 import { ProjectSingleComponent } from './components/project/project-single/project-single.component';
 import { MessageComponent } from './components/message/message.component';
+import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { ClientAddComponent } from './components/client/client-add/client-add.component';
+import { ClientIndexComponent } from './components/client/client-index/client-index.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import { MessageComponent } from './components/message/message.component';
     UserSingleComponent,
     ProjectSingleComponent,
     MessageComponent,
+    ClientListComponent,
+    ClientAddComponent,
+    ClientIndexComponent,
   ],
   imports: [
     BrowserModule,

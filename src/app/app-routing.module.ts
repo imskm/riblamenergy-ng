@@ -15,6 +15,8 @@ import { ProjectTeamComponent } from './components/project/project-team/project-
 import { PaymentListComponent } from './components/payment/payment-list/payment-list.component';
 import { PaymentAddComponent } from './components/payment/payment-add/payment-add.component';
 import { PaymentShowComponent } from './components/payment/payment-show/payment-show.component';
+import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { ClientAddComponent } from './components/client/client-add/client-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'payments', component: PaymentListComponent },
   { path: 'payment/add', component: PaymentAddComponent },
   { path: 'payment/:id/show', component: PaymentShowComponent },
+  { path: 'clients', component: ClientListComponent },
+  { path: 'client/add', component: ClientAddComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,33 @@
+<div class="dashboard">
+	<app-sidebar></app-sidebar>
+	<div class="dashboard-main">
+		<app-header></app-header>
+		<div class="dashboard-body">
+			<div class="dashboard-body-title-wrapper">
+				<div class="dashboard-body-title">
+					<h1>Create Client</h1>
+					<div>
+						<a routerLink="/clients" class="button is-primary">Back</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="dashboard-content">
+
+				<div class="field">
+					<label for="full_name" class="label">Full name</label>
+					<input [(ngModel)]="client.full_name" id="full_name" type="text" class="input" placeholder="Full name">
+				</div>
+				<div class="field">
+					<label for="phone" class="label">Phone</label>
+					<input [(ngModel)]="client.phone" id="phone" type="text" class="input" placeholder="e.g. 9824000000 (optional)" maxlength="10">
+				</div>
+				<app-message></app-message>
+				<button (click)="create()" class="button" type="button">Create</button>
+
+
+			</div>
+		</div>
+
+	</div>
+</div>

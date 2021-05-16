@@ -1,0 +1,26 @@
+<div class="dashboard">
+    <app-sidebar></app-sidebar>
+    <div class="dashboard-main">
+        <app-header></app-header>
+        <div class="dashboard-body">
+            <div class="dashboard-body-title-wrapper">
+                <div class="dashboard-body-title">
+                    <h1>Clients</h1>
+                    <div>
+                        <a routerLink="/client/add" class="button is-primary">New Client</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+
+                <app-client-index *ngIf="clients.length; else elseBlock" [clientList]="clients"></app-client-index>
+                <ng-template #elseBlock>No client created yet</ng-template>
+
+                <app-message></app-message>
+            
+            </div>
+        </div>
+
+    </div>
+</div>
