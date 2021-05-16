@@ -15,6 +15,7 @@ import { ProjectModel } from '../../../models/project.model';
 export class ProjectListComponent implements OnInit {
 
   projects: Array<ProjectModel>;
+  project_q: string = "";
 
   constructor(private projectService: ProjectService) {
   	this.projects = [];
@@ -29,6 +30,20 @@ export class ProjectListComponent implements OnInit {
   		this.projects = res.data;
       // @TODO Handle error response
   	});
+  }
+
+  searchProject() {
+    if (this.project_q.replace(" ", "").length < 3) {
+      if (this.project_q.replace(" ", "").length == 0) {
+        this.fetchProjects();
+        return;
+      }
+      return;
+    }
+    this.projectService.search(this.project_q)
+      .subscribe((res: any) => {
+        this.projects = res.data;
+      });
   }
 
 }

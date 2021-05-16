@@ -6,9 +6,15 @@
             <div class="dashboard-body-title-wrapper">
                 <div class="dashboard-body-title">
                     <h1>Projects</h1>
-                    <div>
-                        <a routerLink="/project/add" class="button is-primary">New Project</a>
+                    <div style="display: flex; align-items: center">
+                        <div style="margin-right: 1rem;">
+                            <input [(ngModel)]="project_q" (input)="searchProject()" type="text" class="input" placeholder="Search...">
+                        </div>
+                        <div>
+                            <a routerLink="/project/add" class="button is-primary">New Project</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
 

@@ -14,6 +14,7 @@ import { UserModel } from '../../../models/user.model';
 export class UserListComponent implements OnInit {
 
   users: Array<UserModel>;
+  user_q: string = "";
 
   constructor(private userService: UserService) {
   	this.users = [];
@@ -40,6 +41,20 @@ export class UserListComponent implements OnInit {
 
   roleText(role: number) {
     return (role == 2) ? "Business Head" : ((role == 3) ? "Area Manager" : ((role == 4) ? "Field Engineer" : "Unknown"));
+  }
+
+  searchUser() {
+    if (this.user_q.replace(" ", "").length < 3) {
+      if (this.user_q.replace(" ", "").length == 0) {
+        this.fetchUsers();
+        return;
+      }
+      return;
+    }
+    this.userService.search(this.user_q)
+      .subscribe((res: any) => {
+        this.users = res.data;
+      });
   }
 
 }

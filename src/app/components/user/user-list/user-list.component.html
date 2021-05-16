@@ -6,8 +6,13 @@
             <div class="dashboard-body-title-wrapper">
                 <div class="dashboard-body-title">
                     <h1>Users</h1>
-                    <div>
-                        <a routerLink="/user/add" class="button is-primary">New User</a>
+                    <div style="display: flex; align-items: center">
+                        <div style="margin-right: 1rem;">
+                            <input [(ngModel)]="user_q" (input)="searchUser()" type="text" class="input" placeholder="Search...">
+                        </div>
+                        <div>
+                            <a routerLink="/user/add" class="button is-primary">New User</a>
+                        </div>
                     </div>
                 </div>
             </div>
