@@ -18,25 +18,27 @@ import { PaymentShowComponent } from './components/payment/payment-show/payment-
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { ClientAddComponent } from './components/client/client-add/client-add.component';
 
+import { AuthGuardService } from './services/auth-guard.service';
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'users', component: UserListComponent },
-  { path: 'user/add', component: UserAddComponent},
-  { path: 'user/:id/edit', component: UserEditComponent},
-  { path: 'user/:id/show', component: UserShowComponent},
-  { path: 'projects', component: ProjectListComponent },
-  { path: 'project/add', component: ProjectAddComponent },
-  { path: 'project/:id/edit', component: ProjectEditComponent },
-  { path: 'project/:id/show', component: ProjectShowComponent },
-  { path: 'project/team/build', component: ProjectTeamBuildComponent },
-  { path: 'project/:id/team', component: ProjectTeamComponent },
-  { path: 'payments', component: PaymentListComponent },
-  { path: 'payment/add', component: PaymentAddComponent },
-  { path: 'payment/:id/show', component: PaymentShowComponent },
-  { path: 'clients', component: ClientListComponent },
-  { path: 'client/add', component: ClientAddComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'users', component: UserListComponent, canActivate: [AuthGuardService] },
+  { path: 'user/add', component: UserAddComponent, canActivate: [AuthGuardService] },
+  { path: 'user/:id/edit', component: UserEditComponent, canActivate: [AuthGuardService] },
+  { path: 'user/:id/show', component: UserShowComponent, canActivate: [AuthGuardService] },
+  { path: 'projects', component: ProjectListComponent, canActivate: [AuthGuardService] },
+  { path: 'project/add', component: ProjectAddComponent, canActivate: [AuthGuardService] },
+  { path: 'project/:id/edit', component: ProjectEditComponent, canActivate: [AuthGuardService] },
+  { path: 'project/:id/show', component: ProjectShowComponent, canActivate: [AuthGuardService] },
+  { path: 'project/team/build', component: ProjectTeamBuildComponent, canActivate: [AuthGuardService] },
+  { path: 'project/:id/team', component: ProjectTeamComponent, canActivate: [AuthGuardService] },
+  { path: 'payments', component: PaymentListComponent, canActivate: [AuthGuardService] },
+  { path: 'payment/add', component: PaymentAddComponent, canActivate: [AuthGuardService] },
+  { path: 'payment/:id/show', component: PaymentShowComponent, canActivate: [AuthGuardService] },
+  { path: 'clients', component: ClientListComponent, canActivate: [AuthGuardService] },
+  { path: 'client/add', component: ClientAddComponent, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

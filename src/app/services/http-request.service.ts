@@ -28,7 +28,7 @@ export class HttpRequestService {
   }
 
   get(uri: string): Observable<any> {
-  	return this.http.get(`${this.baseUri}/${uri}`)
+  	return this.http.get(`${this.baseUri}/${uri}`, { withCredentials: true })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           return this.handleError(error);
@@ -37,7 +37,7 @@ export class HttpRequestService {
   }
 
   post(uri: string, data: Object): Observable<any> {
-  	return this.http.post(`${this.baseUri}/${uri}`, data)
+  	return this.http.post(`${this.baseUri}/${uri}`, data, { withCredentials: true })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           return this.handleError(error);
@@ -46,7 +46,7 @@ export class HttpRequestService {
   }
 
   patch(uri: string, data: Object): Observable<any> {
-  	return this.http.patch(`${this.baseUri}/${uri}`, data)
+  	return this.http.patch(`${this.baseUri}/${uri}`, data, { withCredentials: true })
       .pipe(
           catchError((error: HttpErrorResponse) => {
           return this.handleError(error);
@@ -55,7 +55,7 @@ export class HttpRequestService {
   }
 
   delete(uri: string): Observable<any> {
-  	return this.http.delete(`${this.baseUri}/${uri}`)
+  	return this.http.delete(`${this.baseUri}/${uri}`, { withCredentials: true })
       .pipe(
           catchError((error: HttpErrorResponse) => {
           return this.handleError(error);

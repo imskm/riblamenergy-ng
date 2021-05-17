@@ -6,14 +6,16 @@
                 <form action="">
                     <div class="form-row">
                         <div class="field">
-                        <input type="text" class="input" placeholder="Email">
+                        <input #emailInput type="text" class="input" placeholder="Email">
                     </div>
                         <div class="field"> 
-                            <input type="text" class="input" placeholder="Password">
+                            <input #passwordInput type="password" class="input" placeholder="Password">
                         </div>
                     </div>
+
+                    <app-message></app-message>
                     
-                    <button class="button" type="login" routerLink="/dashboard">Login</button>
+                    <button (click)="onLogin(emailInput.value, passwordInput.value)" class="button" type="login">Login</button>
                     <div class="parent1">
                         <div class="child-1 c-1">
                             <label class="checkbox">
