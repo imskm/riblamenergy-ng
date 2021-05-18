@@ -18,7 +18,7 @@ export class HttpRequestService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {
   	if (isDevMode()) {
   		this.baseUri = DEV_API_ENDPOINT;

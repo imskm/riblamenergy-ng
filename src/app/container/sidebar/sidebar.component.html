@@ -17,7 +17,7 @@
             </span>
             <span>Dashboard</span>
         </a>
-        <a class="dashboard-menu-item" routerLink="/users">
+        <a *ngIf="authService.isAdmin()" class="dashboard-menu-item" routerLink="/users">
             <span class="icon">
                 <i class="ri-group-line"></i>
             </span>
@@ -29,7 +29,7 @@
             </span>
             <span>Projects</span>
         </a>
-        <a class="dashboard-menu-item" routerLink="/project/team/build">
+        <a *ngIf="authService.isAdmin()" class="dashboard-menu-item" routerLink="/project/team/build">
             <span class="icon">
                 <i class="ri-team-line"></i>
             </span>
@@ -41,7 +41,7 @@
             </span>
             <span>Payments</span>
         </a>
-        <a class="dashboard-menu-item" routerLink="/clients">
+        <a *ngIf="authService.isAdmin()" class="dashboard-menu-item" routerLink="/clients">
             <span class="icon">
                 <i class="ri-user-line"></i>
             </span>

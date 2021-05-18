@@ -6,7 +6,7 @@
             <div class="dashboard-body-title-wrapper">
                 <div class="dashboard-body-title">
                     <h1>Projects</h1>
-                    <div style="display: flex; align-items: center">
+                    <div *ngIf="authService.isAdmin()" style="display: flex; align-items: center">
                         <div style="margin-right: 1rem;">
                             <input [(ngModel)]="project_q" (input)="searchProject()" type="text" class="input" placeholder="Search...">
                         </div>

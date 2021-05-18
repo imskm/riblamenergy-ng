@@ -10,7 +10,7 @@
 	    <th>Commission</th>
 	    <th>Comm. Paid</th>
 	    <th>Created At</th>
-	    <th></th>
+	    <th *ngIf="authService.isAdmin()"></th>
 	  </tr>
 	</thead>
 	<tbody>
@@ -24,7 +24,7 @@
 	    <td>{{ p.commission_amount }}</td>
 	    <td>{{ p.commission_paid }}</td>
 	    <td>{{ p.created_at }}</td>
-	    <td><a routerLink="{{ '/project/'+ p.id +'/edit' }}">Edit</a></td>
+	    <td *ngIf="authService.isAdmin()"><a routerLink="{{ '/project/'+ p.id +'/edit' }}">Edit</a></td>
 	  </tr>
 	</tbody>
 	</table>

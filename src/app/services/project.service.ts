@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
+import { AuthService } from './auth.service';
+
 import { ProjectModel } from '../models/project.model';
 import { FormBuilder } from '../helpers/formbuilder';
 import { HttpRequestService } from './http-request.service';
@@ -9,9 +11,12 @@ import { HttpRequestService } from './http-request.service';
   providedIn: 'root'
 })
 export class ProjectService {
-  baseUrl       = "admin/project";
+  baseUrl       = "project";
 
-  constructor(private httpRequest: HttpRequestService) { }
+  constructor(private httpRequest: HttpRequestService, private authSerivce: AuthService) {
+    const userType = this.authSerivce.isAdmin()? "admin" : "user";
+    this.baseUrl = `${userType}/${this.baseUrl}`;
+  }
 
   create(projectModel: ProjectModel): Observable<any> {
     const post_data = FormBuilder.mapJSONToFormData(projectModel);

@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 
 
+import { AuthService } from '../../../services/auth.service';
 import { ProjectService } from '../../../services/project.service';
 import { ProjectModel } from '../../../models/project.model';
 
@@ -17,7 +18,7 @@ export class ProjectListComponent implements OnInit {
   projects: Array<ProjectModel>;
   project_q: string = "";
 
-  constructor(private projectService: ProjectService) {
+  constructor(private projectService: ProjectService, public authService: AuthService) {
   	this.projects = [];
   }
 

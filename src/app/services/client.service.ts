@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { HttpRequestService } from './http-request.service';
+import { AuthService } from './auth.service';
 import { FormBuilder } from '../helpers/formbuilder';
 
 import { ClientModel } from '../models/client.model';
@@ -11,11 +12,15 @@ import { ClientModel } from '../models/client.model';
 })
 export class ClientService {
 
-  baseUrl       = "admin/client";
+  baseUrl       = "client";
 
   constructor(
   	private httpRequest: HttpRequestService,
-  ) { }
+    private authSerivce: AuthService,
+  ) {
+    const userType = this.authSerivce.isAdmin()? "admin" : "user";
+    this.baseUrl = `${userType}/${this.baseUrl}`;
+  }
 
   fetch(): Observable<any> {
   	return this.httpRequest.get(this.baseUrl + "/index");

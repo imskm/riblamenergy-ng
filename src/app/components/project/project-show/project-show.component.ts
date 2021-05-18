@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ProjectService } from '../../../services/project.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class ProjectShowComponent implements OnInit {
   constructor(
   	private route: ActivatedRoute,
   	private router: Router,
-    private projectSerivce: ProjectService
+    private projectSerivce: ProjectService,
+    public authService: AuthService,
   ) { }
 
   ngOnInit(): void {

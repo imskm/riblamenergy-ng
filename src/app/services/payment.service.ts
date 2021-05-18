@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
+import { AuthService } from './auth.service';
+
 import { PaymentModel } from '../models/payment.model';
 import { FormBuilder } from '../helpers/formbuilder';
 import { HttpRequestService } from './http-request.service';
@@ -9,9 +11,12 @@ import { HttpRequestService } from './http-request.service';
   providedIn: 'root'
 })
 export class PaymentService {
-  baseUrl       = "admin/payment";
+  baseUrl       = "payment";
 
-  constructor(private httpRequest: HttpRequestService) { }
+  constructor(private httpRequest: HttpRequestService, private authSerivce: AuthService) {
+    const userType = this.authSerivce.isAdmin()? "admin" : "user";
+    this.baseUrl = `${userType}/${this.baseUrl}`;
+  }
 
   create(PaymentModel: PaymentModel): Observable<any> {
     const post_data = FormBuilder.mapJSONToFormData(PaymentModel);

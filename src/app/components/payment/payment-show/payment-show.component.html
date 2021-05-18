@@ -6,7 +6,7 @@
 			<div class="dashboard-body-title-wrapper">
 				<div class="dashboard-body-title">
 					<h1>Payment</h1>
-					<div>
+					<div *ngIf="authService.isAdmin()">
 						<a routerLink="/payment/add" class="button is-primary">New Payment</a>
 					</div>
 				</div>
@@ -43,7 +43,7 @@
 				<div class="project-show">
 					<div class="project-title">
 						<h1>Project</h1>
-						<div>
+						<div *ngIf="authService.isAdmin()">
 							<a routerLink="/project/add" class="button is-primary">New project</a>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 				<div class="project-show">
 					<div class="project-title">
 						<h1>User</h1>
-						<div>
+						<div *ngIf="authService.isAdmin()">
 							<a routerLink="/user/add" class="button is-primary">New user</a>
 						</div>
 					</div>

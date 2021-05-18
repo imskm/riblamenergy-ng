@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
+import { AuthService } from './auth.service';
+
 import { TeamBuilderModel } from '../models/team-builder.model';
 import { FormBuilder } from '../helpers/formbuilder';
 import { HttpRequestService } from './http-request.service';
@@ -10,9 +12,12 @@ import { HttpRequestService } from './http-request.service';
   providedIn: 'root'
 })
 export class TeamBuilderService {
-  baseUrl       = "admin/team-builder";
+  baseUrl       = "team-builder";
 
-  constructor(private httpRequest: HttpRequestService) { }
+  constructor(private httpRequest: HttpRequestService, private authSerivce: AuthService) {
+    const userType = this.authSerivce.isAdmin()? "admin" : "user";
+    this.baseUrl = `${userType}/${this.baseUrl}`;
+  }
 
   create(teamBuilderModel: TeamBuilderModel): Observable<any> {
     const post_data = new FormData();

@@ -6,6 +6,7 @@ import { ProjectModel } from '../../../models/project.model';
 import { UserModel } from '../../../models/user.model';
 
 import { PaymentService } from '../../../services/payment.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-payment-show',
@@ -21,7 +22,8 @@ export class PaymentShowComponent implements OnInit {
   constructor(
   	private route: ActivatedRoute,
   	private router: Router,
-  	private paymentService: PaymentService
+  	private paymentService: PaymentService,
+    public authService: AuthService,
   ) { }
 
   ngOnInit(): void {

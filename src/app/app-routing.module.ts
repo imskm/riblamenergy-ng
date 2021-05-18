@@ -19,26 +19,27 @@ import { ClientListComponent } from './components/client/client-list/client-list
 import { ClientAddComponent } from './components/client/client-add/client-add.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { RoleGuardService } from './services/role-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: 'users', component: UserListComponent, canActivate: [AuthGuardService] },
-  { path: 'user/add', component: UserAddComponent, canActivate: [AuthGuardService] },
-  { path: 'user/:id/edit', component: UserEditComponent, canActivate: [AuthGuardService] },
-  { path: 'user/:id/show', component: UserShowComponent, canActivate: [AuthGuardService] },
+  { path: 'users', component: UserListComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
+  { path: 'user/add', component: UserAddComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
+  { path: 'user/:id/edit', component: UserEditComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
+  { path: 'user/:id/show', component: UserShowComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
   { path: 'projects', component: ProjectListComponent, canActivate: [AuthGuardService] },
-  { path: 'project/add', component: ProjectAddComponent, canActivate: [AuthGuardService] },
-  { path: 'project/:id/edit', component: ProjectEditComponent, canActivate: [AuthGuardService] },
+  { path: 'project/add', component: ProjectAddComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
+  { path: 'project/:id/edit', component: ProjectEditComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
   { path: 'project/:id/show', component: ProjectShowComponent, canActivate: [AuthGuardService] },
-  { path: 'project/team/build', component: ProjectTeamBuildComponent, canActivate: [AuthGuardService] },
+  { path: 'project/team/build', component: ProjectTeamBuildComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
   { path: 'project/:id/team', component: ProjectTeamComponent, canActivate: [AuthGuardService] },
   { path: 'payments', component: PaymentListComponent, canActivate: [AuthGuardService] },
-  { path: 'payment/add', component: PaymentAddComponent, canActivate: [AuthGuardService] },
+  { path: 'payment/add', component: PaymentAddComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
   { path: 'payment/:id/show', component: PaymentShowComponent, canActivate: [AuthGuardService] },
-  { path: 'clients', component: ClientListComponent, canActivate: [AuthGuardService] },
-  { path: 'client/add', component: ClientAddComponent, canActivate: [AuthGuardService] },
+  { path: 'clients', component: ClientListComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
+  { path: 'client/add', component: ClientAddComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
 ];
 
 @NgModule({

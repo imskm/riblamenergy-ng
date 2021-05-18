@@ -6,7 +6,7 @@
             <div class="dashboard-body-title-wrapper">
                 <div class="dashboard-body-title">
                     <h1>Payments</h1>
-                    <div>
+                    <div *ngIf="authService.isAdmin()">
                         <a routerLink="/payment/add" class="button is-primary">New Payment</a>
                     </div>
                 </div>

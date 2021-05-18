@@ -63,6 +63,7 @@ export class AuthService {
   			console.log("LOGGED OUT");
   			console.log(res);
   			this.router.navigate([loginURI]);
+        window.location.reload();
   		})
   	);
   }
@@ -75,6 +76,18 @@ export class AuthService {
   	// Restore the user property if it's not set and storage has user details
 
   	return true;
+  }
+
+  isAdmin() {
+    const user = this.getUser();
+
+    return user.role == 1;
+  }
+
+  isUser() {
+    const user = this.getUser();
+
+    return user.role != 1;
   }
 
   storeUser(user: any): void {

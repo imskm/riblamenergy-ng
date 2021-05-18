@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 
+import { AuthService } from '../../../services/auth.service';
 import { PaymentService } from '../../../services/payment.service';
 import { PaymentModel } from '../../../models/payment.model';
 
@@ -15,7 +16,7 @@ export class PaymentListComponent implements OnInit {
   
   payments: Array<PaymentModel>;
 
-  constructor(private paymentService: PaymentService) {
+  constructor(private paymentService: PaymentService, public authService: AuthService) {
   	this.payments = [];
   }
 
