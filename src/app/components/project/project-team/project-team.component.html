@@ -9,7 +9,7 @@
             <div>
               <a (click)="navigateBack()" class="button is-primary">Back</a>
               <a href="#" class="button is-primary">Tree</a>
-              <a routerLink="/project/team/build" [queryParams]="{project_id: project_id}" class="button is-primary">Build Team</a>
+              <a  *ngIf="authService.isAdmin()" routerLink="/project/team/build" [queryParams]="{project_id: project_id}" class="button is-primary">Build Team</a>
             </div>
           </div>
         </div>

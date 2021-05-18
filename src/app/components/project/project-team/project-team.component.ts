@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { ProjectService } from '../../../services/project.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,8 @@ export class ProjectTeamComponent implements OnInit {
   	private route: ActivatedRoute,
   	private router: Router,
   	private projectService: ProjectService,
-  	private _location: Location
+  	private _location: Location,
+    public authService: AuthService,
   ) { }
 
   ngOnInit(): void {
