@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ProjectService } from '../../../services/project.service';
 import { UserService } from '../../../services/user.service';
 import { TeamBuilderService } from '../../../services/team-builder.service';
+import { MessageService } from '../../../services/message.service';
 
 import { ProjectModel } from '../../../models/project.model';
 import { ClientModel } from '../../../models/client.model';
@@ -43,7 +44,8 @@ export class ProjectTeamBuildComponent implements OnInit {
   	private router: Router,
   	private projectService: ProjectService,
   	private userService: UserService,
-    private teamBuilderService: TeamBuilderService
+    private teamBuilderService: TeamBuilderService,
+    private msgService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -99,8 +101,10 @@ export class ProjectTeamBuildComponent implements OnInit {
 
   create() {
     this.teamBuilderService.create(this.teamBuilder).subscribe((res) => {
-      // @TODO Handle success/error response
-      //  Show message
+      const project_id = this.teamBuilder.project_id;
+      const url = `/project/${project_id}/team`;
+      this.msgService.set("Team added successfully!");
+      this.router.navigate([url]);
     });
   }
 
