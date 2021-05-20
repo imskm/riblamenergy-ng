@@ -22,8 +22,8 @@ export class ClientService {
     this.baseUrl = `${userType}/${this.baseUrl}`;
   }
 
-  fetch(): Observable<any> {
-  	return this.httpRequest.get(this.baseUrl + "/index");
+  fetch(page: number): Observable<any> {
+  	return this.httpRequest.get(this.baseUrl + "/index?page=" + page);
   }
 
   create(clientModel: ClientModel): Observable<any> {

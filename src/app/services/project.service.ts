@@ -25,8 +25,8 @@ export class ProjectService {
   }
 
   // Fetch recent users by page
-  fetch(): Observable<any> {
-    return this.httpRequest.get(this.baseUrl + "/index");
+  fetch(page: number): Observable<any> {
+    return this.httpRequest.get(this.baseUrl + "/index?page=" + page);
   }
 
   // Get a specific user by ID
@@ -46,7 +46,7 @@ export class ProjectService {
     return this.httpRequest.get(this.baseUrl + "/search?q=" + q);
   }
 
-  fetchTeam(project_id: number) {
-    return this.httpRequest.get(this.baseUrl + "/" + project_id + "/team");
+  fetchTeam(project_id: number, page: number) {
+    return this.httpRequest.get(this.baseUrl + "/" + project_id + "/team?page=" + page);
   }
 }

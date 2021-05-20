@@ -25,8 +25,8 @@ export class PaymentService {
   }
 
   // Fetch recent users by page
-  fetch(): Observable<any> {
-    return this.httpRequest.get(this.baseUrl + "/index");
+  fetch(page: number): Observable<any> {
+    return this.httpRequest.get(this.baseUrl + "/index?page=" + page);
   }
 
   // Get a specific user by ID
