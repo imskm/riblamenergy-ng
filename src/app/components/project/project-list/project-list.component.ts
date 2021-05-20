@@ -23,11 +23,11 @@ export class ProjectListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  	this.fetchProjects();
+  	this.fetchProjects(1);
   }
 
-  fetchProjects() {
-  	this.projectService.fetch().subscribe((res: any) => {
+  fetchProjects(page: number) {
+  	this.projectService.fetch(page).subscribe((res: any) => {
   		this.projects = res.data;
       // @TODO Handle error response
   	});
@@ -36,7 +36,7 @@ export class ProjectListComponent implements OnInit {
   searchProject() {
     if (this.project_q.replace(" ", "").length < 3) {
       if (this.project_q.replace(" ", "").length == 0) {
-        this.fetchProjects();
+        this.fetchProjects(1);
         return;
       }
       return;
@@ -45,6 +45,10 @@ export class ProjectListComponent implements OnInit {
       .subscribe((res: any) => {
         this.projects = res.data;
       });
+  }
+
+  paginateProject(page: number) {
+    this.fetchProjects(page);
   }
 
 }

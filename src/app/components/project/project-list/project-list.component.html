@@ -20,7 +20,7 @@
 
             <div class="dashboard-content">
 
-              <app-project-index [projectList]="projects"></app-project-index>
+              <app-project-index [projectList]="projects" (paginate)="paginateProject($event)"></app-project-index>
 
             </div>
         </div>

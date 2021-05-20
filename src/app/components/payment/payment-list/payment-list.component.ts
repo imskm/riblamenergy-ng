@@ -21,14 +21,18 @@ export class PaymentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  	this.fetchPayments();
+  	this.fetchPayments(1);
   }
 
-  fetchPayments() {
-  	this.paymentService.fetch()
+  fetchPayments(page: number) {
+  	this.paymentService.fetch(page)
   		.subscribe((res) => {
   			this.payments = res.data;
   		});
+  }
+
+  paginatePayment(page: number) {
+    this.fetchPayments(page);
   }
 
 }

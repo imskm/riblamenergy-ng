@@ -55,11 +55,11 @@ export class ProjectTeamBuildComponent implements OnInit {
   		}
   	});
 
-  	this.fetchProjects();
+  	this.fetchProjects(1);
   }
 
-  fetchProjects() {
-  	this.projectService.fetch().subscribe((res: any) => {
+  fetchProjects(page: number) {
+  	this.projectService.fetch(page).subscribe((res: any) => {
   		// Sort name wise
   		res.data.sort((a, b) => {
   			return a.title.localeCompare(b.title);

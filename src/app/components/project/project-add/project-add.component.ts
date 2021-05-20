@@ -30,7 +30,7 @@ export class ProjectAddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.fetchClients();
+    this.fetchClients(1);
   }
 
   create() {
@@ -56,8 +56,8 @@ export class ProjectAddComponent implements OnInit {
     this.project.commission_amount = this.project.net_revenue * (rate / 100);
   }
 
-  fetchClients() {
-    this.clientService.fetch().subscribe((res: any) => {
+  fetchClients(page: number) {
+    this.clientService.fetch(page).subscribe((res: any) => {
       this.clients = res.data;
     });
   }

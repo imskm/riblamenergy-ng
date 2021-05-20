@@ -14,7 +14,7 @@
 
             <div class="dashboard-content">
 
-                <app-client-index *ngIf="clients.length; else elseBlock" [clientList]="clients"></app-client-index>
+                <app-client-index *ngIf="clients.length; else elseBlock" [clientList]="clients" (paginate)="paginateClient($event)"></app-client-index>
                 <ng-template #elseBlock>No client created yet</ng-template>
 
                 <app-message></app-message>

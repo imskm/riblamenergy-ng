@@ -16,13 +16,18 @@ export class ClientListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  	this.fetchClient();
+  	this.fetchClient(1);
   }
 
-  fetchClient() {
-  	this.clientService.fetch().subscribe((res) => {
+  fetchClient(page: number) {
+  	this.clientService.fetch(page).subscribe((res) => {
   		this.clients = res.data;
   	});
+  }
+
+  paginateClient(page: number) {
+    console.log("Paginate client")
+    this.fetchClient(page);
   }
 
 }

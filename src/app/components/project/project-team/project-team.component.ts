@@ -28,11 +28,11 @@ export class ProjectTeamComponent implements OnInit {
 
   ngOnInit(): void {
   	this.project_id = this.route.snapshot.paramMap.get("id");
-  	this.fetchTeamMembers();
+  	this.fetchTeamMembers(1);
   }
 
-  fetchTeamMembers() {
-  	this.projectService.fetchTeam(this.project_id).subscribe((res: any) => {
+  fetchTeamMembers(page: number) {
+  	this.projectService.fetchTeam(this.project_id, page).subscribe((res: any) => {
   		this.users = res.data;
   	});
   }
@@ -43,6 +43,10 @@ export class ProjectTeamComponent implements OnInit {
 
   navigateBack() {
   	this._location.back();
+  }
+
+  paginateTeam(page: number) {
+    this.fetchTeamMembers(page);
   }
 
 }

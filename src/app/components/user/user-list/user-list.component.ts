@@ -21,11 +21,11 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  	this.fetchUsers();
+  	this.fetchUsers(1);
   }
 
-  fetchUsers() {
-  	this.userService.fetch().subscribe((res: any) => {
+  fetchUsers(page: number) {
+  	this.userService.fetch(page).subscribe((res: any) => {
   		this.users = res.data;
       // @TODO Handle error response
   	});
@@ -46,7 +46,7 @@ export class UserListComponent implements OnInit {
   searchUser() {
     if (this.user_q.replace(" ", "").length < 3) {
       if (this.user_q.replace(" ", "").length == 0) {
-        this.fetchUsers();
+        this.fetchUsers(1);
         return;
       }
       return;
@@ -55,6 +55,10 @@ export class UserListComponent implements OnInit {
       .subscribe((res: any) => {
         this.users = res.data;
       });
+  }
+
+  userPaginate(page) {
+    this.fetchUsers(page);
   }
 
 }

@@ -30,15 +30,15 @@
 	</table>
 	<div style="margin-top: 1rem;">
 	<div class="pagination">
-	  <a href="" class="pagination-prev">
+	  <a (click)="prevPage()" class="pagination-prev">
 	    <span class="icon">
 	      <i class="ri-arrow-left-line"></i>
 	    </span>
 	  </a>
-	  <a href="" class="pagination-page">
-	    <span>1</span>
+	  <a class="pagination-page">
+	    <span>{{ page }}</span>
 	  </a>
-	  <a href="" class="pagination-next">
+	  <a (click)="nextPage()" class="pagination-next">
 	    <span class="icon">
 	      <i class="ri-arrow-right-line"></i>
 	    </span>
