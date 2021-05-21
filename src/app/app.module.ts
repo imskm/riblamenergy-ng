@@ -34,6 +34,7 @@ import { MessageComponent } from './components/message/message.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { ClientAddComponent } from './components/client/client-add/client-add.component';
 import { ClientIndexComponent } from './components/client/client-index/client-index.component';
+import { ProjectTeamMoveComponent } from './components/project/project-team-move/project-team-move.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ClientIndexComponent } from './components/client/client-index/client-in
     ClientListComponent,
     ClientAddComponent,
     ClientIndexComponent,
+    ProjectTeamMoveComponent,
   ],
   imports: [
     BrowserModule,

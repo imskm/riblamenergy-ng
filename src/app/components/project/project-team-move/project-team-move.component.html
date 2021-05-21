@@ -1,0 +1,107 @@
+<div class="dashboard">
+    <app-sidebar></app-sidebar>
+    <div class="dashboard-main">
+        <app-header></app-header>
+        <div class="dashboard-body">
+	        <div class="dashboard-body-title-wrapper">
+	          <div class="dashboard-body-title">
+	            <h1>Team Builder</h1>
+	            <div>
+	            	<a routerLink="/project/team/build" [queryParams]="{project_id: teamMover.src_project_id}" class="button">Assign member</a>
+	            </div>
+	          </div>
+	        </div>
+
+	        <div class="dashboard-content">
+	          <div class="row">
+	            <div class="col-1">
+	              <div class="field">
+	                <label for="" class="label">Select source project</label>
+	                <select [(ngModel)]="teamMover.src_project_id" name="src_project_id">
+		                <option value="0">Select Project</option>
+		                <option *ngFor="let p of projects" value="{{ p.id }}">{{ p.title }}</option>
+	                </select>
+	              </div>
+	              <div class="field">
+	                <label for="" class="label">Search user to be moved</label>
+	                <input [(ngModel)]="user_q" (input)="searchUser()" type="text" class="input" placeholder="Search...">
+	              </div>
+	              <table class="table has-alternate-bg">
+	                  <thead>
+	                    <tr>
+	                      <th>ID</th>
+	                      <th>Full Name</th>
+	                      <th>Phone</th>
+	                      <th>Role</th>
+	                      <th></th>
+	                    </tr>
+	                  </thead>
+	                  <tbody>
+						<tr *ngFor="let u of usersSearchResult">
+	                      <td>{{ u.id }}</td>
+	                      <td>{{ u.first_name + " " + u.last_name }}</td>
+	                      <td>{{ u.phone }}</td>
+	                      <td>{{ roleText(u.role) }}</td>
+	                      <td><button (click)="selectUser(u)" class="button" type="button">Select</button></td>
+	                    </tr>
+	                  </tbody>
+	                </table>
+	            </div>
+	            <div class="col-2">
+	              <div class="field">
+	                <label for="" class="label">Select destination project</label>
+	                <select [(ngModel)]="teamMover.dest_project_id" name="src_project_id">
+		                <option value="0">Select Project</option>
+		                <option *ngFor="let p of projects" value="{{ p.id }}">{{ p.title }}</option>
+	                </select>
+	              </div>
+	              <div class="field">
+	                <label for="" class="label">Search user under which source user will be moved</label>
+	                <input [(ngModel)]="parent_q" (input)="searchParent()" type="text" class="input" placeholder="Search...">
+	              </div>
+	              <table class="table has-alternate-bg">
+	                  <thead>
+	                    <tr>
+	                      <th>ID</th>
+	                      <th>Full Name</th>
+	                      <th>Phone</th>
+	                      <th>Role</th>
+	                      <th></th>
+	                    </tr>
+	                  </thead>
+	                  <tbody>
+						<tr *ngFor="let u of parentsSearchResult">
+	                      <td>{{ u.id }}</td>
+	                      <td>{{ u.first_name + " " + u.last_name }}</td>
+	                      <td>{{ u.phone }}</td>
+	                      <td>{{ roleText(u.role) }}</td>
+	                      <td><button (click)="selectParent(u)" class="button" type="button">Select</button></td>
+	                    </tr>
+	                  </tbody>
+	                </table>
+	            </div>
+	          </div>
+	          <div class="field" style="margin-top: 1rem;">
+                <p *ngIf="selectedUser; else elseBlock">
+                	Selected source user:
+                	<strong>
+		                {{ selectedUser.id }}: {{ selectedUser.first_name + " " + selectedUser.last_name }}
+                	</strong>
+	            </p>
+                <p *ngIf="selectedParent; else elseBlock">
+                	Selected parent user:
+                	<strong>
+		                {{ selectedParent.id }}: {{ selectedParent.first_name + " " + selectedParent.last_name }}
+                	</strong>
+	            </p>
+                <ng-template #elseBlock></ng-template>
+	          </div>
+	          <div>
+	            <button (click)="create()" class="button is-fullwidth">Save</button>
+	          </div>
+
+		    </div>
+	    </div>
+
+    </div>
+</div>

@@ -11,6 +11,7 @@ import { ProjectAddComponent } from './components/project/project-add/project-ad
 import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
 import { ProjectShowComponent } from './components/project/project-show/project-show.component';
 import { ProjectTeamBuildComponent } from './components/project/project-team-build/project-team-build.component';
+import { ProjectTeamMoveComponent } from './components/project/project-team-move/project-team-move.component';
 import { ProjectTeamComponent } from './components/project/project-team/project-team.component';
 import { PaymentListComponent } from './components/payment/payment-list/payment-list.component';
 import { PaymentAddComponent } from './components/payment/payment-add/payment-add.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'project/:id/edit', component: ProjectEditComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
   { path: 'project/:id/show', component: ProjectShowComponent, canActivate: [AuthGuardService] },
   { path: 'project/team/build', component: ProjectTeamBuildComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
+  { path: 'project/team/move', component: ProjectTeamMoveComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },
   { path: 'project/:id/team', component: ProjectTeamComponent, canActivate: [AuthGuardService] },
   { path: 'payments', component: PaymentListComponent, canActivate: [AuthGuardService] },
   { path: 'payment/add', component: PaymentAddComponent, canActivate: [RoleGuardService], data: { expectedRole: 'admin' } },

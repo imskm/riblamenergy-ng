@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { AuthService } from './auth.service';
 
 import { TeamBuilderModel } from '../models/team-builder.model';
+import { TeamMoverModel } from '../models/team-mover.model';
 import { FormBuilder } from '../helpers/formbuilder';
 import { HttpRequestService } from './http-request.service';
 
@@ -31,6 +32,13 @@ export class TeamBuilderService {
     });
 
     return this.httpRequest.post(this.baseUrl + "/assign-member", post_data);
+  }
+
+  move(teamMoverModel: TeamMoverModel): Observable<any> {
+    const url = `${this.baseUrl}/move-member`;
+    const post_data = FormBuilder.mapJSONToFormData(teamMoverModel);
+
+    return this.httpRequest.post(url, post_data);
   }
 
 }
