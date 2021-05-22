@@ -11,18 +11,30 @@
 	    <th></th>
 	  </tr>
 	</thead>
-	<tbody>
-	  <tr *ngFor="let u of userList">
-	    <td><a routerLink="{{'/user/' + u.id +'/show'}}">{{ u.id }}</a></td>
-	    <td>{{ u.first_name }}</td>
-	    <td>{{ u.last_name }}</td>
-	    <td>{{ u.phone }}</td>
-	    <td>{{ u.email }}</td>
-	    <td>{{ roleText(u.role) }}</td>
-	    <td>{{ u.created_at }}</td>
-	    <td><a routerLink="{{ '/user/' + u.id + '/edit' }}">Edit</a></td>
-	  </tr>
-	  
+	<tbody *ngFor="let u of userList; let i=index">
+		<tr>
+		    <td><a routerLink="{{'/user/' + u.id +'/show'}}">{{ u.id }}</a></td>
+		    <td>{{ u.first_name }}</td>
+		    <td>{{ u.last_name }}</td>
+		    <td>{{ u.phone }}</td>
+		    <td>{{ u.email }}</td>
+		    <td>{{ roleText(u.role) }}</td>
+		    <td>{{ u.created_at }}</td>
+		    <td>
+		    	<a routerLink="{{ '/user/' + u.id + '/edit' }}">Edit</a>
+		    	<button (click)="fetchSubtree(i)" *ngIf="showSubtree" class="button" style="margin-left: 8px; width: 42px; height: 42px; margin-top: 0; background: transparent; color: #0cafff;" title="View Subtree"><i class="ri-node-tree"></i></button>
+		    </td>
+		</tr>
+	    <tr *ngFor="let c of u.children">
+	    	<td></td>
+	    	<td>{{ c.id }}</td>
+		    <td>{{ c.first_name + " " + c.last_name }}</td>
+		    <td>{{ c.phone }}</td>
+		    <td>{{ c.email }}</td>
+		    <td>{{ roleText(c.role) }}</td>
+		    <td>{{ c.created_at }}</td>
+
+	    </tr>
 	</tbody>
 </table>
 <div style="margin-top: 1rem;">

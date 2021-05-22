@@ -15,7 +15,7 @@
         </div>
 
         <div class="dashboard-content">
-        	<app-users-index [userList]="users" (paginate)="paginateTeam($event)"></app-users-index>
+        	<app-users-index [userList]="users" (paginate)="paginateTeam($event)" (subtree)="fetchSubtree($event)" [showSubtree]="true"></app-users-index>
           <app-message></app-message>
         </div>
       </div>

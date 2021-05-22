@@ -10,7 +10,11 @@ export class UsersIndexComponent implements OnInit {
   @Output()
   paginate: EventEmitter<number> = new EventEmitter<number>();
 
+  @Output()
+  subtree: EventEmitter<number> = new EventEmitter<number>();
+
   @Input() userList: Array<any>;
+  @Input() showSubtree: boolean = false;
   public page: number = 1;
 
   constructor() {}
@@ -37,6 +41,10 @@ export class UsersIndexComponent implements OnInit {
   nextPage() {
     ++this.page;
     this.paginate.emit(this.page);
+  }
+
+  fetchSubtree(index: number) {
+    this.subtree.emit(index);
   }
 
 }

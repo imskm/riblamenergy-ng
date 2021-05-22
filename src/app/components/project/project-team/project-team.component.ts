@@ -33,7 +33,12 @@ export class ProjectTeamComponent implements OnInit {
 
   fetchTeamMembers(page: number) {
   	this.projectService.fetchTeam(this.project_id, page).subscribe((res: any) => {
-  		this.users = res.data;
+      this.users = [];
+      res.data.forEach((el: any) => {
+        let result = el;
+        result.children = [];
+    		this.users.push(result);
+      });
   	});
   }
 
@@ -47,6 +52,17 @@ export class ProjectTeamComponent implements OnInit {
 
   paginateTeam(page: number) {
     this.fetchTeamMembers(page);
+  }
+
+  fetchSubtree(index: number) {
+    // Field Engineer (role = 4) does not have children
+    if (this.users[index].role == 4) {
+      return;
+    }
+
+    this.projectService.fetchSubtree(this.project_id, this.users[index].id).subscribe((res: any) => {
+      this.users[index].children = res.data.children;
+    });
   }
 
 }

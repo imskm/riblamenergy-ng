@@ -49,4 +49,8 @@ export class ProjectService {
   fetchTeam(project_id: number, page: number) {
     return this.httpRequest.get(this.baseUrl + "/" + project_id + "/team?page=" + page);
   }
+
+  fetchSubtree(project_id: number, user_id: number) {
+    return this.httpRequest.get(this.baseUrl + "/" + project_id + "/subtree?user_id=" + user_id);
+  }
 }
