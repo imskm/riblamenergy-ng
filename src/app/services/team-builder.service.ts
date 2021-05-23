@@ -37,6 +37,9 @@ export class TeamBuilderService {
   move(teamMoverModel: TeamMoverModel): Observable<any> {
     const url = `${this.baseUrl}/move-member`;
     const post_data = FormBuilder.mapJSONToFormData(teamMoverModel);
+    if (!teamMoverModel.parent) {
+      post_data.delete("parent");
+    }
 
     return this.httpRequest.post(url, post_data);
   }
