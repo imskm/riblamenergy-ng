@@ -30,8 +30,8 @@
 
           <div class="row" style="margin-bottom: 1rem;">
             <div class="col-1">
-              <div class="field">
-                <label for="parent_q" class="label">Search parent</label>
+              <div *ngIf="teamBuilder.role && (teamBuilder.role == 3 || teamBuilder.role == 4)" class="field">
+                <label for="parent_q" class="label">Search {{ roleText(teamBuilder.role - 1) }} (parent)</label>
                 <input [(ngModel)]="parent_q" (input)="searchParent()" type="text" class="input" placeholder="Search parent...">
               </div>
               <table class="table has-alternate-bg">
