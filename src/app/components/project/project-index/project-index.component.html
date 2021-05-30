@@ -4,11 +4,11 @@
 	    <th>ID</th>
 	    <th>Project Name</th>
 	    <th>Client</th>
-	    <th>Revenue</th>
-	    <th>Tax</th>
-	    <th>Net Revenue</th>
-	    <th>Commission</th>
-	    <th>Comm. Paid</th>
+	    <th>Revenue (&#x20B9;)</th>
+	    <th>Tax (&#x20B9;)</th>
+	    <th>Net Revenue (&#x20B9;)</th>
+	    <th>Commission (&#x20B9;)</th>
+	    <th>Comm. Paid (&#x20B9;)</th>
 	    <th>Created At</th>
 	    <th *ngIf="authService.isAdmin()"></th>
 	  </tr>
@@ -17,12 +17,12 @@
 	  <tr *ngFor="let p of projectList">
 	    <td><a routerLink="{{ '/project/'+ p.id +'/show' }}">{{ p.id }}</a></td>
 	    <td>{{ p.title }}</td>
-	    <td>{{ p.client_id }}</td>
+	    <td><a routerLink="{{ '/clients' }}">{{ p.client_id }}</a></td>
 	    <td>{{ p.revenue }}</td>
 	    <td>{{ p.tax }}</td>
 	    <td>{{ p.net_revenue }}</td>
 	    <td>{{ p.commission_amount }}</td>
-	    <td>{{ p.commission_paid }}</td>
+	    <td>{{ p.paid_amount }}</td>
 	    <td>{{ p.created_at }}</td>
 	    <td *ngIf="authService.isAdmin()"><a routerLink="{{ '/project/'+ p.id +'/edit' }}">Edit</a></td>
 	  </tr>

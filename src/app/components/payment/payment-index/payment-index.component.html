@@ -4,15 +4,17 @@
         <th>ID</th>
         <th>Project</th>
         <th>User</th>
-        <th>Amount</th>
+        <th>Phone</th>
+        <th>Amount (&#x20B9;)</th>
         <th>Paid at</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let p of paymentList">
         <td><a routerLink="{{ '/payment/'+ p.id +'/show' }}">{{ p.id }}</a></td>
-        <td>{{ p.project_id }}</td>
-        <td>{{ p.user_id }}</td>
+        <td><a routerLink="{{ '/project/' + p.project.id + '/show' }}">{{ p.project.title }}</a></td>
+        <td><a routerLink="{{ '/user/' + p.user.id + '/show' }}">{{ p.user.first_name + " " + p.user.last_name }}</a></td>
+        <td>{{ p.user.phone }}</td>
         <td>{{ p.amount }}</td>
         <td>{{ p.created_at }}</td>
       </tr>
